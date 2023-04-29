@@ -3,27 +3,39 @@ package com.example.appclinicaunmsm.presentacion
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.appclinicaunmsm.presentacion.login.LoginForm
+import com.example.helloworldcompose.ui.theme.AppClinicaUnmsmTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Greeting("Android")
+            AppClinicaUnmsmTheme() {
+                MainComponent()
+            }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainComponent() {
+    LoginForm()
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun DefaultPreview() {
-    Greeting("Android")
+fun MainComponentPreview() {
+    AppClinicaUnmsmTheme() {
+        MainComponent()
+    }
 }
 
+@Preview
+@Composable
+fun MainComponentNightPreview() {
+    AppClinicaUnmsmTheme(true) {
+        MainComponent()
+    }
+}
