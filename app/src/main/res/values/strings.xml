@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">appclinicaunmsm</string>
+
+    <string name="bottom_bar_1">Inicio</string>
+    <string name="bottom_bar_2">Citas</string>
+    <string name="bottom_bar_3">Historial</string>
+    <string name="bottom_bar_4">Configuración</string>
 </resources>

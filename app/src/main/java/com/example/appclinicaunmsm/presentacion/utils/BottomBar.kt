@@ -20,20 +20,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-private val navBarItems = arrayOf(
-    Pair("Inicio", Icons.Outlined.Home),
-    Pair("Citas", Icons.Outlined.AccountCircle),
-    Pair("Historial", Icons.Outlined.Info),
-    Pair("Configuración", Icons.Outlined.Settings),
-)
+import com.example.appclinicaunmsm.R
 
 @Composable
 @Preview
 fun BottomBar() {
+    val navBarItems = arrayOf(
+        Pair(
+            stringResource(id = R.string.bottom_bar_1), Icons.Outlined.Home
+        ),
+        Pair(
+            stringResource(id = R.string.bottom_bar_2), Icons.Outlined.AccountCircle
+        ),
+        Pair(
+            stringResource(id = R.string.bottom_bar_3), Icons.Outlined.Info
+        ),
+        Pair(
+            stringResource(id = R.string.bottom_bar_4), Icons.Outlined.Settings
+        ),
+    )
+
     BottomAppBar(content = {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -53,18 +63,14 @@ fun SectionBottomBar(text: String, imageVector: ImageVector) {
         modifier = Modifier.padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        IconButton(
-            modifier = Modifier.size(20.dp),
-            onClick = { /*TODO*/ }
-        ) {
+        IconButton(modifier = Modifier.size(20.dp), onClick = { /*TODO*/ }) {
             Icon(
                 imageVector = imageVector,
                 contentDescription = "dummy",
             )
         }
         Text(
-            fontSize = 12.sp,
-            text = text
+            fontSize = 12.sp, text = text
         )
     }
 }
