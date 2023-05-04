@@ -38,6 +38,6 @@ fun MainApp() {
 
 @Composable
 fun Content(modifier: Modifier) {
-    TODO("Agregar utilidad para el parámetro modifier")
+    //TODO "Agregar utilidad para el parámetro modifier"
     LoginForm()
 }
