@@ -22,11 +22,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.appclinicaunmsm.presentacion.login.components.InputForm
+import com.example.appclinicaunmsm.presentacion.login.components.PasswordInput
+import com.example.appclinicaunmsm.presentacion.login.components.UserInput
+
 @Composable
 fun LoginForm() {
 
@@ -44,8 +46,8 @@ fun LoginForm() {
 
         Text(text = "Iniciar sesión", fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
 
-        InputForm(value = username, onValueChange = { username = it })
-        InputForm(value = password, onValueChange = { password = it })
+        UserInput(value = username, onValueChange = { username = it })
+        PasswordInput(value = password, onValueChange = { password = it })
 
         val showDialog = remember { mutableStateOf(false) }
 
