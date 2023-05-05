@@ -13,9 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ButtonForm(onClick: () -> Unit) {
+fun ButtonForm(loginEnabled: Boolean, onClick: () -> Unit) {
     Button(onClick = onClick,
-        modifier = Modifier.fillMaxWidth()) {
+        modifier = Modifier.fillMaxWidth(),
+        enabled = loginEnabled) {
         Icon(
             Icons.Filled.AccountBox,
             contentDescription = "Favorite",

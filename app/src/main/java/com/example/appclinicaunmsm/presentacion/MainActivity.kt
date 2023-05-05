@@ -9,6 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.login.LoginForm
 import com.example.appclinicaunmsm.presentacion.utils.BottomBar
 import com.example.appclinicaunmsm.presentacion.utils.TopBar
@@ -39,5 +40,5 @@ fun MainApp() {
 @Composable
 fun Content(modifier: Modifier) {
     //TODO "Agregar utilidad para el parámetro modifier"
-    LoginForm()
+    LoginForm(LoginViewModel())
 }
