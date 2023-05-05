@@ -10,7 +10,12 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PasswordInput(value: String, onValueChange: (String) -> Unit = {}) {
-    InputForm(value = value, onValueChange = onValueChange, keyboardType = KeyboardType.Password)
+    InputForm(
+        value = value,
+        onValueChange = onValueChange,
+        keyboardType = KeyboardType.Password,
+        placeholder = "Contraseña"
+    )
 }
 
 @Preview

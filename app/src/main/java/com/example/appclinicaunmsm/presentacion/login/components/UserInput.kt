@@ -5,8 +5,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun UserInput(value: String, onValueChange: (String) -> Unit = {} ) {
-    InputForm(value = value, onValueChange = onValueChange, keyboardType = KeyboardType.Text)
+fun UserInput(value: String, onValueChange: (String) -> Unit = {}) {
+    InputForm(
+        value = value,
+        onValueChange = onValueChange,
+        keyboardType = KeyboardType.Text,
+        placeholder = "Nombre de usuario"
+    )
 }
 
 @Preview
