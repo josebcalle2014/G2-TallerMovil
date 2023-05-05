@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.login.LoginForm
-import com.example.appclinicaunmsm.presentacion.utils.BottomBar
-import com.example.appclinicaunmsm.presentacion.utils.TopBar
+import com.example.appclinicaunmsm.presentacion.global.bar.BottomBar
+import com.example.appclinicaunmsm.presentacion.global.bar.TopBar
 import com.example.helloworldcompose.ui.theme.AppClinicaUnmsmTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.login.components
+package com.example.appclinicaunmsm.presentacion.global.form
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,16 +13,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ButtonForm(loginEnabled: Boolean, onClick: () -> Unit) {
+fun ButtonForm(buttonEnabled: Boolean, onClick: () -> Unit, text: String) {
     Button(onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
-        enabled = loginEnabled) {
+        enabled = buttonEnabled) {
         Icon(
-            Icons.Filled.AccountBox,
+            imageVector = Icons.Filled.AccountBox,
             contentDescription = "Favorite",
             modifier = Modifier.size(ButtonDefaults.IconSize)
         )
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-        Text("Ingresar")
+        Text(text)
     }
 }

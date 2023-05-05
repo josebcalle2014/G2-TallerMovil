@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.utils
+package com.example.appclinicaunmsm.presentacion.global.bar
 
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar

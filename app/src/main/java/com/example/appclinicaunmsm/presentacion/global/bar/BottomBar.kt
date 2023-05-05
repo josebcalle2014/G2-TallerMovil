@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.utils
+package com.example.appclinicaunmsm.presentacion.global.bar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
