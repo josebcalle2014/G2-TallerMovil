@@ -16,8 +16,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
 import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
@@ -41,7 +43,7 @@ fun LoginForm(viewModel: LoginViewModel) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
 
-        TitleForm("Iniciar sesión")
+        TitleForm(text = stringResource(id = R.string.login_title_form))
 
         TextInput(
             value = username,
@@ -81,7 +83,7 @@ fun LoginForm(viewModel: LoginViewModel) {
         ButtonForm(
             buttonEnabled = loginEnabled,
             onClick = { viewModel.onLoginSelected() },
-            text = "Ingresar"
+            text = stringResource(id = R.string.login_button_form)
         )
 
         ForgotPassword()

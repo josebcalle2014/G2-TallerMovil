@@ -6,7 +6,9 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import com.example.appclinicaunmsm.R
 
 @Composable
 fun Input(
@@ -27,7 +29,7 @@ fun Input(
 fun PasswordInput(
     value: String,
     onValueChange: (String) -> Unit,
-    placeholder: String = "Contraseña"
+    placeholder: String = stringResource(id = R.string.password_field_form)
 ) {
     Input(
         value = value,
