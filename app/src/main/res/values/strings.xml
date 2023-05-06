@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">appclinicaunmsm</string>
 
-    <string name="bottom_bar_1">Inicio</string>
-    <string name="bottom_bar_2">Citas</string>
-    <string name="bottom_bar_3">Historial</string>
-    <string name="bottom_bar_4">Configuración</string>
+    <string-array name="bottom_bar">
+        <item>Inicio</item>
+        <item>Citas</item>
+        <item>Historial</item>
+        <item>Configuración</item>
+    </string-array>
+
+    <string name="login_title_form">Iniciar sesión</string>
+    <string name="login_button_form">Ingresar</string>
+
+    <string name="register_title_form">Registrarse</string>
+    <string name="register_button_form">Registrarse</string>
 </resources>
