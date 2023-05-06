@@ -48,7 +48,7 @@ fun LoginForm(viewModel: LoginViewModel) {
         TextInput(
             value = username,
             onValueChange = { viewModel.onLoginChanged(it, password) },
-            placeholder = "Nombre de usuario"
+            placeholder = stringResource(id = R.string.username_field_form)
         )
         PasswordInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
 
