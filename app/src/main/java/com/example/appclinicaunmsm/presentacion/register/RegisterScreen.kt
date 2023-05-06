@@ -9,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
@@ -17,6 +18,8 @@ import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
 import com.example.appclinicaunmsm.presentacion.global.form.PhoneInput
 import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
+
+import com.example.appclinicaunmsm.R
 
 @Composable
 fun RegisterScreen() {
@@ -31,19 +34,23 @@ fun RegisterScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
-        TitleForm(text = "Registrarse")
-        TextInput(value = name, onValueChange = { name = it }, placeholder = "Nombres")
-        TextInput(value = name, onValueChange = { name = it }, placeholder = "Apellidos")
-        TextInput(value = name, onValueChange = { name = it }, placeholder = "Nombre de usuario")
+
+        TitleForm(text = stringResource(id = R.string.register_title_form))
+
+        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.name_field_form))
+        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.lastname_field_form))
+        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.username_field_form))
         EmailInput(value = name, onValueChange = { name = it })
         PasswordInput(value = name, onValueChange = { name = it })
         PasswordInput(
-            value = name,
-            onValueChange = { name = it },
-            placeholder = "Repita su contraseña"
+            value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.repeat_password_field_form)
         )
         PhoneInput(value = name, onValueChange = { name = it })
-        ButtonForm(buttonEnabled = true, onClick = {}, text = "Registrarse")
+        ButtonForm(
+            buttonEnabled = true,
+            onClick = {},
+            text = stringResource(id = R.string.register_button_form)
+        )
     }
 }
 
