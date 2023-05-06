@@ -7,17 +7,23 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
-
-val presentationItems = arrayOf(
-    Pair("Agenda tus citas", "Ahorra tu tiempo"),
-    Pair("Característica 2", "Subtitulo 2"),
-    Pair("Característica 3", "Subtitulo 3"),
-)
+import com.example.appclinicaunmsm.R
 
 @Preview
 @Composable
 fun Presentation() {
+
+    val features = stringArrayResource(id = R.array.features)
+    val featuresDescriptions = stringArrayResource(id = R.array.features_description)
+
+    val presentationItems = arrayOf(
+        Pair(features[0], featuresDescriptions[0]),
+        Pair(features[1], featuresDescriptions[1]),
+        Pair(features[2], featuresDescriptions[2]),
+    )
+
     var actualIndex by remember { mutableStateOf(0) }
 
     Column(
