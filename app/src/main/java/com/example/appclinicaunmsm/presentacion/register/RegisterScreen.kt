@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
 import com.example.appclinicaunmsm.presentacion.global.form.EmailInput
 import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
@@ -20,9 +22,11 @@ import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 
 import com.example.appclinicaunmsm.R
+import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
+import com.example.appclinicaunmsm.presentacion.register.components.LoginText
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navController: NavHostController) {
 
     var name by remember { mutableStateOf("") }
 
@@ -48,14 +52,16 @@ fun RegisterScreen() {
         PhoneInput(value = name, onValueChange = { name = it })
         ButtonForm(
             buttonEnabled = true,
-            onClick = {},
+            onClick = {navController.navigate(AppScreens.HOME_SCREEN.route)},
             text = stringResource(id = R.string.register_button_form)
         )
+        Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
+        LoginText(navController = navController)
     }
 }
 
 @Preview
 @Composable
 fun PreviewRegistreScreen() {
-    RegisterScreen()
+    //RegisterScreen(navController)
 }

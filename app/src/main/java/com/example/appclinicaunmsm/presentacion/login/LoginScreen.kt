@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -19,16 +20,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
 import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
 import com.example.appclinicaunmsm.presentacion.global.form.TextInput
-import com.example.appclinicaunmsm.presentacion.login.components.ForgotPassword
+import com.example.appclinicaunmsm.presentacion.login.components.ForgotPasswordText
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
+import com.example.appclinicaunmsm.presentacion.login.components.RegisterText
+import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
 
 @Composable
-fun LoginForm(viewModel: LoginViewModel) {
+fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
 
     val username: String by viewModel.username.observeAsState(initial = "")
     val password: String by viewModel.password.observeAsState(initial = "")
@@ -82,17 +86,15 @@ fun LoginForm(viewModel: LoginViewModel) {
 
         ButtonForm(
             buttonEnabled = loginEnabled,
-            onClick = { viewModel.onLoginSelected() },
+            onClick = {
+                viewModel.onLoginSelected()
+                navController.navigate(AppScreens.HOME_SCREEN.route)
+            },
             text = stringResource(id = R.string.login_button_form)
         )
 
-        ForgotPassword()
+        ForgotPasswordText(navController = navController)
+        Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
+        RegisterText(navController = navController)
     }
-}
-
-@Preview
-@Composable
-fun LoginFormPreview() {
-    val loginViewModel = LoginViewModel()
-    LoginForm(loginViewModel)
 }
