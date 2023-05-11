@@ -1,5 +1,8 @@
-package com.example.appclinicaunmsm.presentacion.welcome
+package com.example.appclinicaunmsm.presentacion.home
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringArrayResource
+import com.example.appclinicaunmsm.presentacion.global.bar.AddBars
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,14 +10,19 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringArrayResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.example.appclinicaunmsm.R
+import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
 
-@Preview
 @Composable
-fun Presentation() {
+fun HomeScreen(navController: NavController) {
+    AddBars (navController = navController) {
+        Home(navController = navController)
+    }
+}
 
+@Composable
+fun Home(navController: NavController) {
     val features = stringArrayResource(id = R.array.features)
     val featuresDescriptions = stringArrayResource(id = R.array.features_description)
 
@@ -38,8 +46,8 @@ fun Presentation() {
             Text(presentationItems[actualIndex].second)
         }
         Row() {
-            Button(onClick = { /*TODO*/ }) {
-                
+            Button(onClick = { navController.navigate(AppScreens.LOGIN_SCREEN.route) }) {
+                Text(text = "Volver al login")
             }
             Column() {
                 // TODO: Agregar icono de bola 1
@@ -49,5 +57,4 @@ fun Presentation() {
             }
         }
     }
-
-}
+ }
