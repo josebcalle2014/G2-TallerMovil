@@ -20,7 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,19 +29,13 @@ import com.example.appclinicaunmsm.R
 @Composable
 @Preview
 fun BottomBar() {
+    val bottomNavBarStrings = stringArrayResource(id = R.array.bottom_bar)
+    
     val navBarItems = arrayOf(
-        Pair(
-            stringResource(id = R.string.bottom_bar_1), Icons.Outlined.Home
-        ),
-        Pair(
-            stringResource(id = R.string.bottom_bar_2), Icons.Outlined.AccountCircle
-        ),
-        Pair(
-            stringResource(id = R.string.bottom_bar_3), Icons.Outlined.Info
-        ),
-        Pair(
-            stringResource(id = R.string.bottom_bar_4), Icons.Outlined.Settings
-        ),
+        Pair( bottomNavBarStrings[0], Icons.Outlined.Home ),
+        Pair( bottomNavBarStrings[1], Icons.Outlined.AccountCircle ),
+        Pair( bottomNavBarStrings[2], Icons.Outlined.Info ),
+        Pair( bottomNavBarStrings[3], Icons.Outlined.Settings ),
     )
 
     BottomAppBar(content = {

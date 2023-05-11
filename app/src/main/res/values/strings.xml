@@ -1,8 +1,35 @@
 <resources>
     <string name="app_name">appclinicaunmsm</string>
 
-    <string name="bottom_bar_1">Inicio</string>
-    <string name="bottom_bar_2">Citas</string>
-    <string name="bottom_bar_3">Historial</string>
-    <string name="bottom_bar_4">Configuración</string>
+    <string-array name="bottom_bar">
+        <item>Inicio</item>
+        <item>Citas</item>
+        <item>Historial</item>
+        <item>Configuración</item>
+    </string-array>
+
+    <string name="name_field_form">Nombres</string>
+    <string name="lastname_field_form">Apellidos</string>
+    <string name="username_field_form">Nombre de usuario</string>
+    <string name="password_field_form">Contraseña</string>
+    <string name="repeat_password_field_form">Contraseña</string>
+
+    <string name="login_title_form">Iniciar sesión</string>
+    <string name="login_button_form">Ingresar</string>
+
+    <string name="register_title_form">Registrarse</string>
+    <string name="register_button_form">Registrarse</string>
+
+    <string-array name="features">
+        <item>Agenda tus citas</item>
+        <item>Característica 2</item>
+        <item>Característica 3</item>
+    </string-array>
+
+    <string-array name="features_description">
+        <item>Ahorra tu tiempo</item>
+        <item>descripcion 2</item>
+        <item>descripcion 3</item>
+    </string-array>
+
 </resources>
