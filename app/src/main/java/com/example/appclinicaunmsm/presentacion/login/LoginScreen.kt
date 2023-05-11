@@ -3,35 +3,34 @@ package com.example.appclinicaunmsm.presentacion.login
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.setValue
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.appclinicaunmsm.presentacion.login.components.InputForm
-@Composable
-fun LoginForm() {
+import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
+import com.example.appclinicaunmsm.presentacion.login.components.ButtonForm
+import com.example.appclinicaunmsm.presentacion.login.components.ForgotPassword
+import com.example.appclinicaunmsm.presentacion.login.components.PasswordInput
+import com.example.appclinicaunmsm.presentacion.login.components.UserInput
 
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+@Composable
+fun LoginForm(viewModel: LoginViewModel) {
+
+    val username: String by viewModel.username.observeAsState(initial = "")
+    val password: String by viewModel.password.observeAsState(initial = "")
+    val loginEnabled: Boolean by viewModel.loginEnabled.observeAsState(initial = false)
 
     Column(
         modifier = Modifier
@@ -44,8 +43,8 @@ fun LoginForm() {
 
         Text(text = "Iniciar sesión", fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
 
-        InputForm(value = username, onValueChange = { username = it })
-        InputForm(value = password, onValueChange = { password = it })
+        UserInput(value = username, onValueChange = { viewModel.onLoginChanged(it, password) })
+        PasswordInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
 
         val showDialog = remember { mutableStateOf(false) }
 
@@ -75,20 +74,15 @@ fun LoginForm() {
             )
         }
 
-        Button(onClick = { showDialog.value = true }) {
-            Icon(
-                Icons.Filled.AccountBox,
-                contentDescription = "Favorite",
-                modifier = Modifier.size(ButtonDefaults.IconSize)
-            )
-            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-            Text("Ingresar")
-        }
+        ButtonForm( loginEnabled = loginEnabled, onClick = { viewModel.onLoginSelected() })
+
+        ForgotPassword()
     }
 }
 
 @Preview
 @Composable
 fun LoginFormPreview() {
-    LoginForm()
+    val loginViewModel = LoginViewModel()
+    LoginForm(loginViewModel)
 }
