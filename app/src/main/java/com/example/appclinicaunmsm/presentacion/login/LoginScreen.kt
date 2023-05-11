@@ -18,12 +18,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
-import com.example.appclinicaunmsm.presentacion.login.components.ButtonForm
+import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
+import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
+import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.login.components.ForgotPassword
-import com.example.appclinicaunmsm.presentacion.login.components.PasswordInput
-import com.example.appclinicaunmsm.presentacion.login.components.UserInput
+import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 
 @Composable
 fun LoginForm(viewModel: LoginViewModel) {
@@ -41,9 +41,13 @@ fun LoginForm(viewModel: LoginViewModel) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
 
-        Text(text = "Iniciar sesión", fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
+        TitleForm("Iniciar sesión")
 
-        UserInput(value = username, onValueChange = { viewModel.onLoginChanged(it, password) })
+        TextInput(
+            value = username,
+            onValueChange = { viewModel.onLoginChanged(it, password) },
+            placeholder = "Nombre de usuario"
+        )
         PasswordInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
 
         val showDialog = remember { mutableStateOf(false) }
@@ -74,7 +78,11 @@ fun LoginForm(viewModel: LoginViewModel) {
             )
         }
 
-        ButtonForm( loginEnabled = loginEnabled, onClick = { viewModel.onLoginSelected() })
+        ButtonForm(
+            buttonEnabled = loginEnabled,
+            onClick = { viewModel.onLoginSelected() },
+            text = "Ingresar"
+        )
 
         ForgotPassword()
     }
