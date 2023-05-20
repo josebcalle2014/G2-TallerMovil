@@ -14,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
 import com.example.appclinicaunmsm.presentacion.global.form.EmailInput
 import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
@@ -52,7 +53,10 @@ fun RegisterScreen(navController: NavHostController) {
         PhoneInput(value = name, onValueChange = { name = it })
         ButtonForm(
             buttonEnabled = true,
-            onClick = {navController.navigate(AppScreens.HOME_SCREEN.route)},
+            onClick = {
+                navController.backQueue.clear()
+                navController.navigate(AppScreens.HOME_SCREEN.route)
+            },
             text = stringResource(id = R.string.register_button_form)
         )
         Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
@@ -63,5 +67,5 @@ fun RegisterScreen(navController: NavHostController) {
 @Preview
 @Composable
 fun PreviewRegistreScreen() {
-    //RegisterScreen(navController)
+    RegisterScreen(navController = rememberNavController())
 }

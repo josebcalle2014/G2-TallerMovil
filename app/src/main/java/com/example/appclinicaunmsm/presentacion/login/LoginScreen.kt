@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
@@ -88,6 +89,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
             buttonEnabled = loginEnabled,
             onClick = {
                 viewModel.onLoginSelected()
+                navController.backQueue.clear()
                 navController.navigate(AppScreens.HOME_SCREEN.route)
             },
             text = stringResource(id = R.string.login_button_form)
@@ -97,4 +99,10 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
         Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
         RegisterText(navController = navController)
     }
+}
+
+@Composable
+@Preview
+fun PreviewLoginScreen() {
+    LoginScreen(navController = rememberNavController(), viewModel = LoginViewModel())
 }

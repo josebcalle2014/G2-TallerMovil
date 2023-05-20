@@ -6,9 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 
 @Composable
-fun AddBars(navController: NavController, content: @Composable (PaddingValues) -> Unit) {
+fun BarsWrapper(navController: NavController, content: @Composable (PaddingValues) -> Unit) {
     Scaffold(
-        topBar = { TopBar() },
+        topBar = { TopBar(navController) },
         content = content,
         bottomBar = { BottomBar(navController) }
     )
