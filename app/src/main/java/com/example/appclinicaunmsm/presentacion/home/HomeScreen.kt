@@ -17,6 +17,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
+import com.example.appclinicaunmsm.dominio.model.ClinicServices
+import com.example.appclinicaunmsm.dominio.model.News
+import com.example.appclinicaunmsm.presentacion.home.components.Section
 import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
 
 @Composable
@@ -46,6 +49,20 @@ fun Home(navController: NavController) {
     ) {
         item {
             TitleScreen(text = "Noticias")
+            val newsTitle = "Noticias"
+            val newsItems = listOf<News>(
+                News("Noticia 1", "Descripcion 1", "img1"),
+                News("Noticia 2", "Descripcion 2", "img2"),
+                News("Noticia 3", "Descripcion 3", "img3")
+            )
+            Section(newsTitle, newsItems)
+            val serviceTitle  = "Servicios"
+            val serviceItems = listOf<ClinicServices>(
+                ClinicServices("Servicio 1", "Descripcion 1", "img1"),
+                ClinicServices("Servicio 2", "Descripcion 2", "img2"),
+                ClinicServices("Servicio 3", "Descripcion 3", "img3"),
+            )
+            Section(serviceTitle, serviceItems)
             Button(onClick = { navController.navigate(AppScreens.LOGIN_SCREEN.route) }) {
                 Text(text = "volver al login")
             }
