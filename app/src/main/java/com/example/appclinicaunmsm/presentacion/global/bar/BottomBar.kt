@@ -52,7 +52,7 @@ fun BottomBar(navController: NavController) {
             SectionBottomBar(
                 text = navBarItems[1].first,
                 imageVector = navBarItems[1].second,
-                onClick = { navController.navigate(AppScreens.HOME_SCREEN.route) }
+                onClick = { navController.navigate(AppScreens.APPOINTMENT_SCREEN.route) }
             )
             SectionBottomBar(
                 text = navBarItems[2].first,

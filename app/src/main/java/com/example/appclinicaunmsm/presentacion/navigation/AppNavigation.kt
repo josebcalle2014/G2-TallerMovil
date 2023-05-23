@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
+import com.example.appclinicaunmsm.presentacion.appointment.AppointmentsScreen
 import com.example.appclinicaunmsm.presentacion.home.HomeScreen
 import com.example.appclinicaunmsm.presentacion.login.LoginScreen
 import com.example.appclinicaunmsm.presentacion.register.RegisterScreen
@@ -21,5 +22,6 @@ fun AppNavigation() {
         }
         composable(AppScreens.REGISTER_SCREEN.route) { RegisterScreen(navController = navController) }
         composable(AppScreens.HOME_SCREEN.route) { HomeScreen(navController = navController)}
+        composable(AppScreens.APPOINTMENT_SCREEN.route) { AppointmentsScreen(navController = navController)}
     }
 }
