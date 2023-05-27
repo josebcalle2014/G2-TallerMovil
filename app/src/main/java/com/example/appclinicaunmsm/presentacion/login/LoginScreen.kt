@@ -25,7 +25,7 @@ import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 import com.example.appclinicaunmsm.presentacion.login.components.ForgotPasswordText
 import com.example.appclinicaunmsm.presentacion.login.components.RegisterText
-import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
+import com.example.appclinicaunmsm.presentacion.navigation.Screen
 
 @Composable
 fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
@@ -56,8 +56,11 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
             buttonEnabled = loginEnabled,
             onClick = {
                 viewModel.onLoginSelected()
-                navController.backQueue.clear()
-                navController.navigate(AppScreens.HOME_SCREEN.route)
+                navController.navigate(Screen.Home.route) {
+                    popUpTo(Screen.Login.route) {
+                        inclusive = true
+                    }
+                }
             },
             text = stringResource(id = R.string.login_button_form)
         )

@@ -23,7 +23,7 @@ import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
+import com.example.appclinicaunmsm.presentacion.navigation.Screen
 import com.example.appclinicaunmsm.presentacion.register.components.LoginText
 
 @Composable
@@ -54,8 +54,11 @@ fun RegisterScreen(navController: NavHostController) {
         ButtonForm(
             buttonEnabled = true,
             onClick = {
-                navController.backQueue.clear()
-                navController.navigate(AppScreens.HOME_SCREEN.route)
+                navController.navigate(Screen.Home.route) {
+                    popUpTo(Screen.Login.route) {
+                        inclusive = true
+                    }
+                }
             },
             text = stringResource(id = R.string.register_button_form)
         )

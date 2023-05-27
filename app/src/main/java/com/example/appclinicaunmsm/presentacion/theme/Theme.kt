@@ -20,14 +20,13 @@ private val LightColorPalette = lightColors(
     primaryVariant = Blue900,
     secondary = LightBlue200,
     background = Color.White,
-    surface = Color.White,
+    surface = Gray100,
 
-    onBackground = Gray800.copy(alpha = 0.87f),
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onSurface = Gray800.copy(alpha = 0.87f),
+    onBackground = Gray800,
+    onPrimary = Gray100,
+    onSecondary = Gray800,
+    onSurface = Gray800,
 )
-
 
 @Composable
 fun AppClinicaUnmsmTheme(
