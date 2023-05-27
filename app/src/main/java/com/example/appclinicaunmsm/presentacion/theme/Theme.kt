@@ -16,21 +16,18 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200,
-    background = Color.White,
-    onBackground = Color.Black,
-
-    /* Other default colors to override
+    primary = Blue600,
+    primaryVariant = Blue900,
+    secondary = LightBlue200,
     background = Color.White,
     surface = Color.White,
+
+    onBackground = Gray800.copy(alpha = 0.87f),
     onPrimary = Color.White,
     onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    onSurface = Gray800.copy(alpha = 0.87f),
 )
+
 
 @Composable
 fun AppClinicaUnmsmTheme(
