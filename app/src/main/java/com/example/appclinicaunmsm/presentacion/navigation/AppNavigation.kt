@@ -13,15 +13,14 @@ import com.example.appclinicaunmsm.presentacion.register.RegisterScreen
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = AppScreens.LOGIN_SCREEN.route) {
-        composable(AppScreens.LOGIN_SCREEN.route) {
+    NavHost(navController = navController, startDestination = Screen.Login.route) {
+        composable(Screen.Login.route) {
             LoginScreen(
-                navController = navController,
-                viewModel = LoginViewModel()
+                navController = navController, viewModel = LoginViewModel()
             )
         }
-        composable(AppScreens.REGISTER_SCREEN.route) { RegisterScreen(navController = navController) }
-        composable(AppScreens.HOME_SCREEN.route) { HomeScreen(navController = navController)}
-        composable(AppScreens.APPOINTMENT_SCREEN.route) { AppointmentsScreen(navController = navController)}
+        composable(Screen.Register.route) { RegisterScreen(navController = navController) }
+        composable(Screen.Home.route) { HomeScreen(navController = navController) }
+        composable(Screen.Appointment.route) { AppointmentsScreen(navController = navController) }
     }
 }

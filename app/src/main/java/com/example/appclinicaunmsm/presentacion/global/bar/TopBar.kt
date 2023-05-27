@@ -22,7 +22,8 @@ fun TopBar(navController: NavController) {
                     )
                 }
             }
-        } else { null }
-    )
+        } else {
+            null
+        })
 
 }

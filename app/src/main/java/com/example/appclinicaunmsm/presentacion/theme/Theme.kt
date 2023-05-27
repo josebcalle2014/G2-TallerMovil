@@ -7,12 +7,17 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200,
-    background = Color.DarkGray,
+val DarkColorPalette = darkColors(
+    primary = Blue800,
+    primaryVariant = Blue900,
+    secondary = LightBlue400,
+    background = DarkBlue400,
+    surface = DarkGray400,
+
     onBackground = Color.White,
+    onPrimary = Color.White,
+    onSecondary = Color.Black,
+    onSurface = Color.White
 )
 
 private val LightColorPalette = lightColors(
@@ -20,14 +25,13 @@ private val LightColorPalette = lightColors(
     primaryVariant = Blue900,
     secondary = LightBlue200,
     background = Color.White,
-    surface = Color.White,
+    surface = Gray100,
 
-    onBackground = Gray800.copy(alpha = 0.87f),
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onSurface = Gray800.copy(alpha = 0.87f),
+    onBackground = Gray800,
+    onPrimary = Gray100,
+    onSecondary = Gray800,
+    onSurface = Gray800,
 )
-
 
 @Composable
 fun AppClinicaUnmsmTheme(

@@ -8,13 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.appclinicaunmsm.presentacion.navigation.AppScreens
+import com.example.appclinicaunmsm.presentacion.navigation.Screen
 
 @Composable
 fun RegisterText(navController: NavController) {
     Text(
         text = "¿Deseas registrarte?",
-        modifier = Modifier.clickable { navController.navigate(AppScreens.REGISTER_SCREEN.route) },
+        modifier = Modifier.clickable { navController.navigate(Screen.Register.route) },
         fontSize = 12.sp,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colors.onBackground
