@@ -22,8 +22,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(name = "Full Preview")
-@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun MainApp() {
     AppClinicaUnmsmTheme() {
