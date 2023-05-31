@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.model.Appointment
 import com.example.appclinicaunmsm.presentacion.global.barras.EnvolvedorBarras
-import com.example.appclinicaunmsm.presentacion.global.components.Section
+import com.example.appclinicaunmsm.presentacion.global.componentes.Seccion
 
 @Composable
 fun VistaCitas(navController: NavController) {
@@ -24,7 +24,7 @@ fun Citas(navController: NavController) {
         Appointment("Cita 3", "Descripcion 3", "img3"),
         Appointment("Cita 4", "Descripcion 4", "img4"),
     )
-    Section(title, items)
+    Seccion(title, items)
 }
 
 @Composable

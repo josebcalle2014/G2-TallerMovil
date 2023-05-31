@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.model.ClinicServices
 import com.example.appclinicaunmsm.presentacion.global.barras.EnvolvedorBarras
-import com.example.appclinicaunmsm.presentacion.global.components.Section
+import com.example.appclinicaunmsm.presentacion.global.componentes.Seccion
 
 @Composable
 fun VistaInicio(navController: NavController) {
@@ -23,7 +23,7 @@ fun Inicio(navController: NavController) {
         ClinicServices("Servicio 2", "Descripcion 2", "img2"),
         ClinicServices("Servicio 3", "Descripcion 3", "img3"),
     )
-    Section(title, items)
+    Seccion(title, items)
  }
 
 @Preview

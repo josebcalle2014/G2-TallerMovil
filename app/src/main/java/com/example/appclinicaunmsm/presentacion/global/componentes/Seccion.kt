@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.global.components
+package com.example.appclinicaunmsm.presentacion.global.componentes
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,7 +34,7 @@ import com.example.appclinicaunmsm.presentacion.global.form.PrimaryButton
 import com.example.appclinicaunmsm.presentacion.global.form.SecondaryButton
 
 @Composable
-fun Section(title: String, itemsList: List<Item>) {
+fun Seccion(title: String, itemsList: List<Item>) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colors.background)
@@ -43,21 +43,21 @@ fun Section(title: String, itemsList: List<Item>) {
     ) {
         Text(text = title, style = MaterialTheme.typography.h5)
         Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp)
-        VerticalCarousel(itemsList)
+        CarruselVertical(itemsList)
     }
 }
 
 @Composable
-fun VerticalCarousel(itemsList: List<Item>) {
+fun CarruselVertical(itemsList: List<Item>) {
     LazyColumn(modifier = Modifier.padding(bottom = 40.dp)) {
         items(itemsList) { item ->
-            ItemComponent(item = item)
+            ComponenteItem(item = item)
         }
     }
 }
 
 @Composable
-fun ItemComponent(item: Item) {
+fun ComponenteItem(item: Item) {
     val showDialog = remember { mutableStateOf(false) }
 
     if (showDialog.value) {
@@ -120,12 +120,12 @@ fun ItemComponent(item: Item) {
 
 @Preview
 @Composable
-fun SectionPreview() {
+fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
         ClinicServices("Servicio 1", "Descripcion 1", "img1"),
         ClinicServices("Servicio 2", "Descripcion 2", "img2"),
         ClinicServices("Servicio 3", "Descripcion 3", "img3"),
     )
-    Section(title, items)
+    Seccion(title, items)
 }
