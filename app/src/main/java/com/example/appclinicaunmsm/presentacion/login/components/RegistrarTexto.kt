@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import com.example.appclinicaunmsm.presentacion.navigation.Screen
 
 @Composable
-fun ForgotPasswordText(navController: NavController) {
+fun RegistrarTexto(navController: NavController) {
     Text(
-        text = "¿Olvidaste tu contraseña?",
+        text = "¿Deseas registrarte?",
         modifier = Modifier.clickable { navController.navigate(Screen.Register.route) },
         fontSize = 12.sp,
         fontWeight = FontWeight.Bold,
