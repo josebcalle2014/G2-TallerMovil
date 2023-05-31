@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.global.bar
+package com.example.appclinicaunmsm.presentacion.global.barras
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import com.example.appclinicaunmsm.R
 
 @Composable
-fun TopBar(navController: NavController) {
+fun BarraSuperior(navController: NavController) {
     TopAppBar(title = { Text(text = stringResource(R.string.app_name)) },
         navigationIcon = if (navController.previousBackStackEntry != null) {
             {

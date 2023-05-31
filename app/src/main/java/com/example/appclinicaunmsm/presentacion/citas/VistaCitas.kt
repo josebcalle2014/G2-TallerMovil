@@ -5,12 +5,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.model.Appointment
-import com.example.appclinicaunmsm.presentacion.global.bar.BarsWrapper
+import com.example.appclinicaunmsm.presentacion.global.barras.EnvolvedorBarras
 import com.example.appclinicaunmsm.presentacion.global.components.Section
 
 @Composable
 fun VistaCitas(navController: NavController) {
-    BarsWrapper (navController = navController) {
+    EnvolvedorBarras (navController = navController) {
         Citas(navController = navController)
     }
 }

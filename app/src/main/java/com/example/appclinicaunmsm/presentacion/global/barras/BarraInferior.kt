@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.global.bar
+package com.example.appclinicaunmsm.presentacion.global.barras
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.BottomNavigation
@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
-fun BottomBar(
+fun BarraInferior(
     vistaActual: Vista,
     onScreenSelected: (Vista) -> Unit
 ) {
@@ -66,6 +66,6 @@ fun BottomBar(
 
 @Preview
 @Composable
-fun PreviewBottomBar() {
-    BottomBar(vistaActual = Vista.Inicio, onScreenSelected = {})
+fun PreviewBarraInferior() {
+    BarraInferior(vistaActual = Vista.Inicio, onScreenSelected = {})
 }
