@@ -8,7 +8,7 @@ import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.citas.VistaCitas
 import com.example.appclinicaunmsm.presentacion.inicio.VistaInicio
 import com.example.appclinicaunmsm.presentacion.login.VistaLogin
-import com.example.appclinicaunmsm.presentacion.register.RegisterScreen
+import com.example.appclinicaunmsm.presentacion.register.VistaRegistro
 
 @Composable
 fun Navegacion() {
@@ -19,7 +19,7 @@ fun Navegacion() {
                 navController = navController, viewModel = LoginViewModel()
             )
         }
-        composable(Vista.Registro.route) { RegisterScreen(navController = navController) }
+        composable(Vista.Registro.route) { VistaRegistro(navController = navController) }
         composable(Vista.Inicio.route) { VistaInicio(navController = navController) }
         composable(Vista.Citas.route) { VistaCitas(navController = navController) }
     }

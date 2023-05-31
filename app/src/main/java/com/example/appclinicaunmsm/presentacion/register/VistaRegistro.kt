@@ -24,10 +24,10 @@ import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.presentacion.navigation.Vista
-import com.example.appclinicaunmsm.presentacion.register.components.LoginText
+import com.example.appclinicaunmsm.presentacion.register.components.LoginTexto
 
 @Composable
-fun RegisterScreen(navController: NavHostController) {
+fun VistaRegistro(navController: NavHostController) {
 
     var name by remember { mutableStateOf("") }
 
@@ -63,12 +63,12 @@ fun RegisterScreen(navController: NavHostController) {
             text = stringResource(id = R.string.register_button_form)
         )
         Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
-        LoginText(navController = navController)
+        LoginTexto(navController = navController)
     }
 }
 
 @Preview
 @Composable
-fun PreviewRegistreScreen() {
-    RegisterScreen(navController = rememberNavController())
+fun PreviewVistaRegistro() {
+    VistaRegistro(navController = rememberNavController())
 }

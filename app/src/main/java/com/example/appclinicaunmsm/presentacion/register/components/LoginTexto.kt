@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
-fun LoginText(navController: NavController) {
+fun LoginTexto(navController: NavController) {
     Text(
         text = "¿Ya tienes un usuario? iniciar sesión",
         modifier = Modifier.clickable { navController.navigate(Vista.Login.route) },
