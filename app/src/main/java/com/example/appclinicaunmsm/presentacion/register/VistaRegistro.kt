@@ -15,12 +15,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
-import com.example.appclinicaunmsm.presentacion.global.form.EmailInput
-import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
-import com.example.appclinicaunmsm.presentacion.global.form.PhoneInput
-import com.example.appclinicaunmsm.presentacion.global.form.TextInput
-import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulario
+import com.example.appclinicaunmsm.presentacion.global.formulario.EmailInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TelefonoInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
 
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.presentacion.navigation.Vista
@@ -40,18 +40,18 @@ fun VistaRegistro(navController: NavHostController) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
 
-        TitleForm(text = stringResource(id = R.string.register_title_form))
+        TituloFormulario(text = stringResource(id = R.string.register_title_form))
 
-        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.name_field_form))
-        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.lastname_field_form))
-        TextInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.username_field_form))
+        TextoInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.name_field_form))
+        TextoInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.lastname_field_form))
+        TextoInput(value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.username_field_form))
         EmailInput(value = name, onValueChange = { name = it })
-        PasswordInput(value = name, onValueChange = { name = it })
-        PasswordInput(
+        ContrasenaInput(value = name, onValueChange = { name = it })
+        ContrasenaInput(
             value = name, onValueChange = { name = it }, placeholder = stringResource(id = R.string.repeat_password_field_form)
         )
-        PhoneInput(value = name, onValueChange = { name = it })
-        ButtonForm(
+        TelefonoInput(value = name, onValueChange = { name = it })
+        BotonFormulario(
             buttonEnabled = true,
             onClick = {
                 navController.navigate(Vista.Inicio.route) {

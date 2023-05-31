@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.model.ClinicServices
 import com.example.appclinicaunmsm.dominio.model.Item
-import com.example.appclinicaunmsm.presentacion.global.form.PrimaryButton
-import com.example.appclinicaunmsm.presentacion.global.form.SecondaryButton
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
 
 @Composable
 fun Seccion(title: String, itemsList: List<Item>) {
@@ -66,7 +66,7 @@ fun ComponenteItem(item: Item) {
             title = { Text(text = "Titulo: ${item.title}") },
             text = { Text(text = "Descripcion: ${item.description}") },
             confirmButton = {
-                PrimaryButton(
+                BotonPrimario(
                     onClick = {
                         showDialog.value = false
                     },
@@ -75,7 +75,7 @@ fun ComponenteItem(item: Item) {
                 )
             },
             dismissButton = {
-                SecondaryButton(
+                BotonSecundario(
                     onClick = {
                         showDialog.value = false
                     },
@@ -99,7 +99,7 @@ fun ComponenteItem(item: Item) {
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier.weight(1f)
                 )
-                PrimaryButton(buttonEnabled = true, onClick = { showDialog.value = true }, text = "Ver más")
+                BotonPrimario(buttonEnabled = true, onClick = { showDialog.value = true }, text = "Ver más")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {

@@ -19,10 +19,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
-import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
-import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
-import com.example.appclinicaunmsm.presentacion.global.form.TextInput
-import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulario
+import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
 import com.example.appclinicaunmsm.presentacion.login.components.OlvidoContrasenaTexto
 import com.example.appclinicaunmsm.presentacion.login.components.RegistrarTexto
 import com.example.appclinicaunmsm.presentacion.navigation.Vista
@@ -43,16 +43,16 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
 
-        TitleForm(text = stringResource(id = R.string.login_title_form))
+        TituloFormulario(text = stringResource(id = R.string.login_title_form))
 
-        TextInput(
+        TextoInput(
             value = username,
             onValueChange = { viewModel.onLoginChanged(it, password) },
             placeholder = stringResource(id = R.string.username_field_form)
         )
-        PasswordInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
+        ContrasenaInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
 
-        ButtonForm(
+        BotonFormulario(
             buttonEnabled = loginEnabled,
             onClick = {
                 viewModel.onLoginSelected()
