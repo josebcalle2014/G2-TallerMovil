@@ -11,16 +11,16 @@ import com.example.appclinicaunmsm.presentacion.login.VistaLogin
 import com.example.appclinicaunmsm.presentacion.register.RegisterScreen
 
 @Composable
-fun AppNavigation() {
+fun Navegacion() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.Login.route) {
-        composable(Screen.Login.route) {
+    NavHost(navController = navController, startDestination = Vista.Login.route) {
+        composable(Vista.Login.route) {
             VistaLogin(
                 navController = navController, viewModel = LoginViewModel()
             )
         }
-        composable(Screen.Register.route) { RegisterScreen(navController = navController) }
-        composable(Screen.Home.route) { VistaInicio(navController = navController) }
-        composable(Screen.Appointment.route) { VistaCitas(navController = navController) }
+        composable(Vista.Registro.route) { RegisterScreen(navController = navController) }
+        composable(Vista.Inicio.route) { VistaInicio(navController = navController) }
+        composable(Vista.Citas.route) { VistaCitas(navController = navController) }
     }
 }

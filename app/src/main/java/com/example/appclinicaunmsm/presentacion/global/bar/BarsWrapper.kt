@@ -4,26 +4,26 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.navigation.NavController
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
 fun BarsWrapper(navController: NavController, content: @Composable (PaddingValues) -> Unit) {
-    var currentScreen by remember { mutableStateOf<Screen>(Screen.Home) }
+    var vistaActual by remember { mutableStateOf<Vista>(Vista.Inicio) }
 
     Scaffold(topBar = { TopBar(navController) }, content = content, bottomBar = {
-        BottomBar(currentScreen = currentScreen, onScreenSelected = { screen ->
-            currentScreen = screen
+        BottomBar(vistaActual = vistaActual, onScreenSelected = { screen ->
+            vistaActual = screen
             navigateToScreen(navController, screen)
         })
     })
 }
 
-private fun navigateToScreen(navController: NavController, screen: Screen) {
+private fun navigateToScreen(navController: NavController, vista: Vista) {
     val currentBackStackEntry = navController.currentBackStackEntry
     val currentDestination = currentBackStackEntry?.destination
 
-    if (currentDestination?.route != screen.route) {
-        navController.navigate(screen.route) {
+    if (currentDestination?.route != vista.route) {
+        navController.navigate(vista.route) {
             popUpTo(currentDestination?.id ?: -1) {
                 inclusive = true
             }

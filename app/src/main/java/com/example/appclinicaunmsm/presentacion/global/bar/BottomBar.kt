@@ -7,58 +7,58 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
 fun BottomBar(
-    currentScreen: Screen,
-    onScreenSelected: (Screen) -> Unit
+    vistaActual: Vista,
+    onScreenSelected: (Vista) -> Unit
 ) {
     Column {
         BottomNavigation {
             BottomNavigationItem(
-                selected = currentScreen == Screen.Home,
-                onClick = { onScreenSelected(Screen.Home) },
+                selected = vistaActual == Vista.Inicio,
+                onClick = { onScreenSelected(Vista.Inicio) },
                 icon = {
                     Icon(
-                        imageVector = Screen.Home.icon,
-                        contentDescription = Screen.Home.route
+                        imageVector = Vista.Inicio.icon,
+                        contentDescription = Vista.Inicio.route
                     )
                 },
-                label = { Text(text = Screen.Home.route) }
+                label = { Text(text = Vista.Inicio.route) }
             )
             BottomNavigationItem(
-                selected = currentScreen == Screen.Appointment,
-                onClick = { onScreenSelected(Screen.Appointment) },
+                selected = vistaActual == Vista.Citas,
+                onClick = { onScreenSelected(Vista.Citas) },
                 icon = {
                     Icon(
-                        imageVector = Screen.Appointment.icon,
-                        contentDescription = Screen.Appointment.route
+                        imageVector = Vista.Citas.icon,
+                        contentDescription = Vista.Citas.route
                     )
                 },
-                label = { Text(text = Screen.Appointment.route) }
+                label = { Text(text = Vista.Citas.route) }
             )
             BottomNavigationItem(
-                selected = currentScreen == Screen.History,
-                onClick = { onScreenSelected(Screen.History) },
+                selected = vistaActual == Vista.Historial,
+                onClick = { onScreenSelected(Vista.Historial) },
                 icon = {
                     Icon(
-                        imageVector = Screen.History.icon,
-                        contentDescription = Screen.History.route
+                        imageVector = Vista.Historial.icon,
+                        contentDescription = Vista.Historial.route
                     )
                 },
-                label = { Text(text = Screen.History.route) }
+                label = { Text(text = Vista.Historial.route) }
             )
             BottomNavigationItem(
-                selected = currentScreen == Screen.Settings,
-                onClick = { onScreenSelected(Screen.Settings) },
+                selected = vistaActual == Vista.Perfil,
+                onClick = { onScreenSelected(Vista.Perfil) },
                 icon = {
                     Icon(
-                        imageVector = Screen.Settings.icon,
-                        contentDescription = Screen.Settings.route
+                        imageVector = Vista.Perfil.icon,
+                        contentDescription = Vista.Perfil.route
                     )
                 },
-                label = { Text(text = Screen.Settings.route) }
+                label = { Text(text = Vista.Perfil.route) }
             )
         }
     }
@@ -67,5 +67,5 @@ fun BottomBar(
 @Preview
 @Composable
 fun PreviewBottomBar() {
-    BottomBar(currentScreen = Screen.Home, onScreenSelected = {})
+    BottomBar(vistaActual = Vista.Inicio, onScreenSelected = {})
 }

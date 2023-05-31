@@ -23,7 +23,7 @@ import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.navigation.Vista
 import com.example.appclinicaunmsm.presentacion.register.components.LoginText
 
 @Composable
@@ -54,8 +54,8 @@ fun RegisterScreen(navController: NavHostController) {
         ButtonForm(
             buttonEnabled = true,
             onClick = {
-                navController.navigate(Screen.Home.route) {
-                    popUpTo(Screen.Login.route) {
+                navController.navigate(Vista.Inicio.route) {
+                    popUpTo(Vista.Login.route) {
                         inclusive = true
                     }
                 }

@@ -8,13 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
 fun OlvidoContrasenaTexto(navController: NavController) {
     Text(
         text = "¿Olvidaste tu contraseña?",
-        modifier = Modifier.clickable { navController.navigate(Screen.Register.route) },
+        modifier = Modifier.clickable { navController.navigate(Vista.Registro.route) },
         fontSize = 12.sp,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colors.onBackground

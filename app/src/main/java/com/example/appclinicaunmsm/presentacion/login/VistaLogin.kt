@@ -25,7 +25,7 @@ import com.example.appclinicaunmsm.presentacion.global.form.TextInput
 import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
 import com.example.appclinicaunmsm.presentacion.login.components.OlvidoContrasenaTexto
 import com.example.appclinicaunmsm.presentacion.login.components.RegistrarTexto
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.navigation.Vista
 
 @Composable
 fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
@@ -56,8 +56,8 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
             buttonEnabled = loginEnabled,
             onClick = {
                 viewModel.onLoginSelected()
-                navController.navigate(Screen.Home.route) {
-                    popUpTo(Screen.Login.route) {
+                navController.navigate(Vista.Inicio.route) {
+                    popUpTo(Vista.Login.route) {
                         inclusive = true
                     }
                 }
