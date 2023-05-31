@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.register
+package com.example.appclinicaunmsm.presentacion.vistas.registro
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,8 +23,8 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
 
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.presentacion.navigation.Vista
-import com.example.appclinicaunmsm.presentacion.register.components.LoginTexto
+import com.example.appclinicaunmsm.presentacion.navegacion.Vista
+import com.example.appclinicaunmsm.presentacion.vistas.registro.componentes.LoginTexto
 
 @Composable
 fun VistaRegistro(navController: NavHostController) {

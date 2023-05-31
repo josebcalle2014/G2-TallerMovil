@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.login
+package com.example.appclinicaunmsm.presentacion.vistas.login
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,9 +23,9 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulari
 import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
-import com.example.appclinicaunmsm.presentacion.login.components.OlvidoContrasenaTexto
-import com.example.appclinicaunmsm.presentacion.login.components.RegistrarTexto
-import com.example.appclinicaunmsm.presentacion.navigation.Vista
+import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoContrasenaTexto
+import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
+import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 
 @Composable
 fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {

@@ -8,8 +8,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.appclinicaunmsm.presentacion.navigation.Navegacion
-import com.example.appclinicaunmsm.presentacion.theme.AppClinicaUnmsmTheme
+import com.example.appclinicaunmsm.presentacion.navegacion.Navegacion
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.navigation
+package com.example.appclinicaunmsm.presentacion.navegacion
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccountCircle

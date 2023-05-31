@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.theme
+package com.example.appclinicaunmsm.presentacion.tema
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

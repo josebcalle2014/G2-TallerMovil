@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.navigation.NavController
-import com.example.appclinicaunmsm.presentacion.navigation.Vista
+import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 
 @Composable
 fun EnvolvedorBarras(navController: NavController, content: @Composable (PaddingValues) -> Unit) {

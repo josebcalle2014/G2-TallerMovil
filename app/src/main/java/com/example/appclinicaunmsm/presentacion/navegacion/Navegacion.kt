@@ -1,14 +1,14 @@
-package com.example.appclinicaunmsm.presentacion.navigation
+package com.example.appclinicaunmsm.presentacion.navegacion
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
-import com.example.appclinicaunmsm.presentacion.citas.VistaCitas
-import com.example.appclinicaunmsm.presentacion.inicio.VistaInicio
-import com.example.appclinicaunmsm.presentacion.login.VistaLogin
-import com.example.appclinicaunmsm.presentacion.register.VistaRegistro
+import com.example.appclinicaunmsm.presentacion.vistas.citas.VistaCitas
+import com.example.appclinicaunmsm.presentacion.vistas.inicio.VistaInicio
+import com.example.appclinicaunmsm.presentacion.vistas.login.VistaLogin
+import com.example.appclinicaunmsm.presentacion.vistas.registro.VistaRegistro
 
 @Composable
 fun Navegacion() {

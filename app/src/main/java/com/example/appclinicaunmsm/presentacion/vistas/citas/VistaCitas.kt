@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.citas
+package com.example.appclinicaunmsm.presentacion.vistas.citas
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
