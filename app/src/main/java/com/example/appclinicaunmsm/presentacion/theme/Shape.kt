@@ -1,4 +1,4 @@
-package com.example.helloworldcompose.ui.theme
+package com.example.appclinicaunmsm.presentacion.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

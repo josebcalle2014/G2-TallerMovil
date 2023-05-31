@@ -9,7 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.appclinicaunmsm.presentacion.navigation.Navegacion
-import com.example.helloworldcompose.ui.theme.AppClinicaUnmsmTheme
+import com.example.appclinicaunmsm.presentacion.theme.AppClinicaUnmsmTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
