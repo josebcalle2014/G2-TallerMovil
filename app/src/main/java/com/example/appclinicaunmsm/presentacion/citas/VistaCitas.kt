@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.appointment
+package com.example.appclinicaunmsm.presentacion.citas
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
@@ -9,14 +9,14 @@ import com.example.appclinicaunmsm.presentacion.global.bar.BarsWrapper
 import com.example.appclinicaunmsm.presentacion.global.components.Section
 
 @Composable
-fun AppointmentsScreen(navController: NavController) {
+fun VistaCitas(navController: NavController) {
     BarsWrapper (navController = navController) {
-        Appointments(navController = navController)
+        Citas(navController = navController)
     }
 }
 
 @Composable
-fun Appointments(navController: NavController) {
+fun Citas(navController: NavController) {
     val title  = "Citas"
     val items = listOf(
         Appointment("Cita 1", "Descripcion 1", "img1"),
@@ -29,6 +29,6 @@ fun Appointments(navController: NavController) {
 
 @Composable
 @Preview
-fun AppointmentsPreview() {
-    Appointments(navController = rememberNavController())
+fun PreviewVistaCitas() {
+    VistaCitas(navController = rememberNavController())
 }
