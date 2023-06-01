@@ -1,15 +1,10 @@
-package com.example.appclinicaunmsm.presentacion.global.form
+package com.example.appclinicaunmsm.presentacion.global.formulario
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -31,7 +26,7 @@ fun Input(
 }
 
 @Composable
-fun PasswordInput(
+fun ContrasenaInput(
     value: String,
     onValueChange: (String) -> Unit,
     placeholder: String = stringResource(id = R.string.password_field_form)
@@ -45,7 +40,7 @@ fun PasswordInput(
 }
 
 @Composable
-fun TextInput(value: String, onValueChange: (String) -> Unit, placeholder: String) {
+fun TextoInput(value: String, onValueChange: (String) -> Unit, placeholder: String) {
     Input(
         value = value,
         onValueChange = onValueChange,
@@ -65,7 +60,7 @@ fun EmailInput(value: String, onValueChange: (String) -> Unit, placeholder: Stri
 }
 
 @Composable
-fun PhoneInput(value: String, onValueChange: (String) -> Unit, placeholder: String = "Teléfono") {
+fun TelefonoInput(value: String, onValueChange: (String) -> Unit, placeholder: String = "Teléfono") {
     Input(
         value = value,
         onValueChange = onValueChange,

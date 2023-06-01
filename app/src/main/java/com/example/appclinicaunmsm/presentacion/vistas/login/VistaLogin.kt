@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.login
+package com.example.appclinicaunmsm.presentacion.vistas.login
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -19,16 +19,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
-import com.example.appclinicaunmsm.presentacion.global.form.ButtonForm
-import com.example.appclinicaunmsm.presentacion.global.form.PasswordInput
-import com.example.appclinicaunmsm.presentacion.global.form.TextInput
-import com.example.appclinicaunmsm.presentacion.global.form.TitleForm
-import com.example.appclinicaunmsm.presentacion.login.components.ForgotPasswordText
-import com.example.appclinicaunmsm.presentacion.login.components.RegisterText
-import com.example.appclinicaunmsm.presentacion.navigation.Screen
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulario
+import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
+import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
+import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoContrasenaTexto
+import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
+import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 
 @Composable
-fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
+fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
 
     val username: String by viewModel.username.observeAsState(initial = "")
     val password: String by viewModel.password.observeAsState(initial = "")
@@ -43,21 +43,21 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
 
-        TitleForm(text = stringResource(id = R.string.login_title_form))
+        TituloFormulario(text = stringResource(id = R.string.login_title_form))
 
-        TextInput(
+        TextoInput(
             value = username,
             onValueChange = { viewModel.onLoginChanged(it, password) },
             placeholder = stringResource(id = R.string.username_field_form)
         )
-        PasswordInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
+        ContrasenaInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
 
-        ButtonForm(
+        BotonFormulario(
             buttonEnabled = loginEnabled,
             onClick = {
                 viewModel.onLoginSelected()
-                navController.navigate(Screen.Home.route) {
-                    popUpTo(Screen.Login.route) {
+                navController.navigate(Vista.Inicio.route) {
+                    popUpTo(Vista.Login.route) {
                         inclusive = true
                     }
                 }
@@ -65,14 +65,14 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
             text = stringResource(id = R.string.login_button_form)
         )
 
-        ForgotPasswordText(navController = navController)
+        OlvidoContrasenaTexto(navController = navController)
         Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
-        RegisterText(navController = navController)
+        RegistrarTexto(navController = navController)
     }
 }
 
 @Composable
 @Preview
-fun PreviewLoginScreen() {
-    LoginScreen(navController = rememberNavController(), viewModel = LoginViewModel())
+fun PreviewVistaLogin() {
+    VistaLogin(navController = rememberNavController(), viewModel = LoginViewModel())
 }

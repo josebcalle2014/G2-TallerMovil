@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.global.components
+package com.example.appclinicaunmsm.presentacion.global.componentes
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,11 +30,11 @@ import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.dominio.model.ClinicServices
 import com.example.appclinicaunmsm.dominio.model.Item
-import com.example.appclinicaunmsm.presentacion.global.form.PrimaryButton
-import com.example.appclinicaunmsm.presentacion.global.form.SecondaryButton
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
+import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
 
 @Composable
-fun Section(title: String, itemsList: List<Item>) {
+fun Seccion(title: String, itemsList: List<Item>) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colors.background)
@@ -43,21 +43,21 @@ fun Section(title: String, itemsList: List<Item>) {
     ) {
         Text(text = title, style = MaterialTheme.typography.h5)
         Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp)
-        VerticalCarousel(itemsList)
+        CarruselVertical(itemsList)
     }
 }
 
 @Composable
-fun VerticalCarousel(itemsList: List<Item>) {
+fun CarruselVertical(itemsList: List<Item>) {
     LazyColumn(modifier = Modifier.padding(bottom = 40.dp)) {
         items(itemsList) { item ->
-            ItemComponent(item = item)
+            ComponenteItem(item = item)
         }
     }
 }
 
 @Composable
-fun ItemComponent(item: Item) {
+fun ComponenteItem(item: Item) {
     val showDialog = remember { mutableStateOf(false) }
 
     if (showDialog.value) {
@@ -66,7 +66,7 @@ fun ItemComponent(item: Item) {
             title = { Text(text = "Titulo: ${item.title}") },
             text = { Text(text = "Descripcion: ${item.description}") },
             confirmButton = {
-                PrimaryButton(
+                BotonPrimario(
                     onClick = {
                         showDialog.value = false
                     },
@@ -75,7 +75,7 @@ fun ItemComponent(item: Item) {
                 )
             },
             dismissButton = {
-                SecondaryButton(
+                BotonSecundario(
                     onClick = {
                         showDialog.value = false
                     },
@@ -99,7 +99,7 @@ fun ItemComponent(item: Item) {
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier.weight(1f)
                 )
-                PrimaryButton(buttonEnabled = true, onClick = { showDialog.value = true }, text = "Ver más")
+                BotonPrimario(buttonEnabled = true, onClick = { showDialog.value = true }, text = "Ver más")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -120,12 +120,12 @@ fun ItemComponent(item: Item) {
 
 @Preview
 @Composable
-fun SectionPreview() {
+fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
         ClinicServices("Servicio 1", "Descripcion 1", "img1"),
         ClinicServices("Servicio 2", "Descripcion 2", "img2"),
         ClinicServices("Servicio 3", "Descripcion 3", "img3"),
     )
-    Section(title, items)
+    Seccion(title, items)
 }
