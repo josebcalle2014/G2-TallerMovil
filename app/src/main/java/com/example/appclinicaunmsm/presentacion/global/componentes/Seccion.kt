@@ -1,5 +1,6 @@
 package com.example.appclinicaunmsm.presentacion.global.componentes
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import com.example.appclinicaunmsm.dominio.model.ClinicServices
 import com.example.appclinicaunmsm.dominio.model.Item
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 @Composable
 fun Seccion(title: String, itemsList: List<Item>) {
@@ -118,8 +120,9 @@ fun ComponenteItem(item: Item) {
     }
 }
 
-@Preview
 @Composable
+@Preview(name = "Modo Claro")
+@Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
@@ -127,5 +130,7 @@ fun PreviewSeccion() {
         ClinicServices("Servicio 2", "Descripcion 2", "img2"),
         ClinicServices("Servicio 3", "Descripcion 3", "img3"),
     )
-    Seccion(title, items)
+    AppClinicaUnmsmTheme {
+        Seccion(title, items)
+    }
 }
