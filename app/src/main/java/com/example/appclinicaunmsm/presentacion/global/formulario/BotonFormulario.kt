@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.global.form
+package com.example.appclinicaunmsm.presentacion.global.formulario
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,7 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ButtonForm(buttonEnabled: Boolean, onClick: () -> Unit, text: String) {
+fun BotonFormulario(buttonEnabled: Boolean, onClick: () -> Unit, text: String) {
     Button(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
@@ -32,7 +32,7 @@ fun ButtonForm(buttonEnabled: Boolean, onClick: () -> Unit, text: String) {
 }
 
 @Composable
-fun PrimaryButton(
+fun BotonPrimario(
     buttonEnabled: Boolean,
     onClick: () -> Unit,
     text: String
@@ -49,7 +49,7 @@ fun PrimaryButton(
     }
 }
 @Composable
-fun SecondaryButton(
+fun BotonSecundario(
     buttonEnabled: Boolean,
     onClick: () -> Unit,
     text: String

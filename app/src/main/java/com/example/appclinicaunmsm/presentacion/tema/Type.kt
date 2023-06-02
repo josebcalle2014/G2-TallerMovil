@@ -1,4 +1,4 @@
-package com.example.helloworldcompose.ui.theme
+package com.example.appclinicaunmsm.presentacion.tema
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

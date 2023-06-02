@@ -1,6 +1,5 @@
 package com.example.appclinicaunmsm.presentacion
 
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,9 +8,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.appclinicaunmsm.presentacion.navigation.AppNavigation
-import com.example.helloworldcompose.ui.theme.AppClinicaUnmsmTheme
+import com.example.appclinicaunmsm.presentacion.navegacion.Navegacion
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +27,7 @@ fun MainApp() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            AppNavigation()
+            Navegacion()
         }
     }
 }
