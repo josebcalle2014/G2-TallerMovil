@@ -1,5 +1,6 @@
 package com.example.appclinicaunmsm.presentacion.global.barras
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -8,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.appclinicaunmsm.presentacion.navegacion.Vista
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 @Composable
 fun BarraInferior(
@@ -64,8 +66,11 @@ fun BarraInferior(
     }
 }
 
-@Preview
 @Composable
+@Preview(name = "Modo Claro")
+@Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewBarraInferior() {
-    BarraInferior(vistaActual = Vista.Inicio, onScreenSelected = {})
+    AppClinicaUnmsmTheme {
+        BarraInferior(vistaActual = Vista.Inicio, onScreenSelected = {})
+    }
 }
