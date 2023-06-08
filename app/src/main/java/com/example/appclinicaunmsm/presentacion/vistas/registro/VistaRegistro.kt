@@ -1,6 +1,5 @@
 package com.example.appclinicaunmsm.presentacion.vistas.registro
 
-import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,7 +24,6 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormular
 
 import com.example.appclinicaunmsm.R
 import com.example.appclinicaunmsm.presentacion.navegacion.Vista
-import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 import com.example.appclinicaunmsm.presentacion.vistas.registro.componentes.LoginTexto
 
 @Composable
@@ -69,11 +67,8 @@ fun VistaRegistro(navController: NavHostController) {
     }
 }
 
+@Preview
 @Composable
-@Preview(name = "Modo Claro")
-@Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewVistaRegistro() {
-    AppClinicaUnmsmTheme {
-        VistaRegistro(navController = rememberNavController())
-    }
+    VistaRegistro(navController = rememberNavController())
 }

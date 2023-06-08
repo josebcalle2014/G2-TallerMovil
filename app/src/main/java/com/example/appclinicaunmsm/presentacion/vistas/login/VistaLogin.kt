@@ -1,6 +1,5 @@
 package com.example.appclinicaunmsm.presentacion.vistas.login
 
-import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,7 +26,6 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormular
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoContrasenaTexto
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
 import com.example.appclinicaunmsm.presentacion.navegacion.Vista
-import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 @Composable
 fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
@@ -74,10 +72,7 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
 }
 
 @Composable
-@Preview(name = "Modo Claro")
-@Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview
 fun PreviewVistaLogin() {
-    AppClinicaUnmsmTheme {
-        VistaLogin(navController = rememberNavController(), viewModel = LoginViewModel())
-    }
+    VistaLogin(navController = rememberNavController(), viewModel = LoginViewModel())
 }
