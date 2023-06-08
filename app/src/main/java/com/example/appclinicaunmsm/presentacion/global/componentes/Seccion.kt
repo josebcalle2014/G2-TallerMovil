@@ -28,8 +28,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.dominio.model.ClinicServices
-import com.example.appclinicaunmsm.dominio.model.Item
+import com.example.appclinicaunmsm.dominio.model.servicioModelos.Servicio
+import com.example.appclinicaunmsm.adapter.Item
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
 
@@ -63,8 +63,8 @@ fun ComponenteItem(item: Item) {
     if (showDialog.value) {
         AlertDialog(
             onDismissRequest = { showDialog.value = false },
-            title = { Text(text = "Titulo: ${item.title}") },
-            text = { Text(text = "Descripcion: ${item.description}") },
+            title = { Text(text = "Titulo: ${item.titulo}") },
+            text = { Text(text = "Descripcion: ${item.descripcion}") },
             confirmButton = {
                 BotonPrimario(
                     onClick = {
@@ -95,7 +95,7 @@ fun ComponenteItem(item: Item) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = item.title,
+                    text = item.titulo,
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier.weight(1f)
                 )
@@ -112,7 +112,7 @@ fun ComponenteItem(item: Item) {
                     contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(16.dp))
-                Text(text = item.description, style = MaterialTheme.typography.body1)
+                Text(text = item.descripcion, style = MaterialTheme.typography.body1)
             }
         }
     }
@@ -123,9 +123,9 @@ fun ComponenteItem(item: Item) {
 fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
-        ClinicServices("Servicio 1", "Descripcion 1", "img1"),
-        ClinicServices("Servicio 2", "Descripcion 2", "img2"),
-        ClinicServices("Servicio 3", "Descripcion 3", "img3"),
+        Servicio("Servicio 1", "Descripcion 1", "img1"),
+        Servicio("Servicio 2", "Descripcion 2", "img2"),
+        Servicio("Servicio 3", "Descripcion 3", "img3"),
     )
     Seccion(title, items)
 }
