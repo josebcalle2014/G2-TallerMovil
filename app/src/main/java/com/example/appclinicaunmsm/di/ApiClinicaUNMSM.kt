@@ -2,7 +2,6 @@ package com.example.appclinicaunmsm.di
 
 import com.example.appclinicaunmsm.data.source.remoto.ApiInterfaz
 import com.example.appclinicaunmsm.util.Constantes
-import com.google.android.gms.common.api.Api
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,11 +16,12 @@ import javax.inject.Singleton
 object ApiClinicaUNMSM {
     @Provides
     @Singleton
-    fun obtenerApi(okHttpClient: OkHttpClient):ApiInterfaz{
-        return Retrofit.Builder()
+    fun obtenerApi():ApiInterfaz{
+        return Retrofit
+            .Builder()
             .baseUrl(Constantes.BASE_URL)
-            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(OkHttpClient.Builder().build())
             .build()
             .create(ApiInterfaz::class.java)
     }
