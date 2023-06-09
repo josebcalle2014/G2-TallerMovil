@@ -4,12 +4,13 @@ import com.example.appclinicaunmsm.adapter.Item
 import com.google.gson.annotations.SerializedName
 
 data class Noticia(
-    @SerializedName("title")
+    //TODO: Revisar atributos de noticia
+    @SerializedName("id_noticia")
+    override var id: String,
+    @SerializedName("url_noticia")
     override var titulo: String,
-    @SerializedName("body")
+    @SerializedName("estado")
     override var descripcion: String,
-    @SerializedName("userId")
+    @SerializedName("img_noticia")
     override var urlImagen: String,
-    @SerializedName("id")
-    var id: String,
 ) : Item
