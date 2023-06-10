@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import com.example.appclinicaunmsm.R
 
 @Composable
@@ -15,12 +17,14 @@ fun Input(
     value: String,
     onValueChange: (String) -> Unit,
     keyboardType: KeyboardType,
-    placeholder: String
+    placeholder: String,
+    visualTransformation: VisualTransformation,
 ) {
     OutlinedTextField(
         value = value, onValueChange = onValueChange,
         modifier = Modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        visualTransformation = visualTransformation,
         placeholder = { Text(placeholder) }
     )
 }
@@ -35,7 +39,8 @@ fun ContrasenaInput(
          value = value,
          onValueChange = onValueChange,
          keyboardType = KeyboardType.Password,
-         placeholder = placeholder
+         placeholder = placeholder,
+         visualTransformation = PasswordVisualTransformation()
      )
 }
 
@@ -45,7 +50,8 @@ fun TextoInput(value: String, onValueChange: (String) -> Unit, placeholder: Stri
         value = value,
         onValueChange = onValueChange,
         keyboardType = KeyboardType.Text,
-        placeholder = placeholder
+        placeholder = placeholder,
+        visualTransformation = VisualTransformation.None
     )
 }
 
@@ -55,7 +61,8 @@ fun EmailInput(value: String, onValueChange: (String) -> Unit, placeholder: Stri
         value = value,
         onValueChange = onValueChange,
         keyboardType = KeyboardType.Email,
-        placeholder = placeholder
+        placeholder = placeholder,
+        visualTransformation = VisualTransformation.None
     )
 }
 
@@ -65,6 +72,7 @@ fun TelefonoInput(value: String, onValueChange: (String) -> Unit, placeholder: S
         value = value,
         onValueChange = onValueChange,
         keyboardType = KeyboardType.Phone,
-        placeholder = placeholder
+        placeholder = placeholder,
+        visualTransformation = VisualTransformation.None
     )
 }
