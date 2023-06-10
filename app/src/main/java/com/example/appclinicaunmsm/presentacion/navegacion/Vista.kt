@@ -13,6 +13,6 @@ sealed class Vista(val route: String, val icon: ImageVector) {
 
     object Inicio : Vista("Inicio", Icons.Outlined.Home)
     object Citas : Vista("Citas", Icons.Outlined.AccountCircle)
-    object Historial : Vista("Inicio", Icons.Outlined.Info)
+    object Historial : Vista("Historial", Icons.Outlined.Info)
     object Perfil : Vista("Inicio", Icons.Outlined.Settings)
 }

@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.vistas.citas.VistaCitas
+import com.example.appclinicaunmsm.presentacion.vistas.historial.VistaHistorial
 import com.example.appclinicaunmsm.presentacion.vistas.inicio.VistaInicio
 import com.example.appclinicaunmsm.presentacion.vistas.login.VistaLogin
 import com.example.appclinicaunmsm.presentacion.vistas.registro.VistaRegistro
@@ -22,5 +23,6 @@ fun Navegacion() {
         composable(Vista.Registro.route) { VistaRegistro(navController = navController) }
         composable(Vista.Inicio.route) { VistaInicio(navController = navController) }
         composable(Vista.Citas.route) { VistaCitas(navController = navController) }
+        composable(Vista.Historial.route) { VistaHistorial(navController = navController)}
     }
 }
