@@ -1,5 +1,6 @@
 package com.example.appclinicaunmsm.presentacion.vistas.historial
 
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -7,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.dominio.model.historialModelos.Historial
 import com.example.appclinicaunmsm.presentacion.global.barras.EnvolvedorBarras
 import com.example.appclinicaunmsm.presentacion.global.componentes.Seccion
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 
 @Composable
 fun VistaHistorial(navController: NavController) {
@@ -17,18 +19,20 @@ fun VistaHistorial(navController: NavController) {
 
 @Composable
 fun Historiales(navController: NavController) {
-    val title  = "Historial"
+    val title  = "Historia Clínica"
     val items = listOf(
-        Historial("Historial 1", "Fecha: 01/01/2000", "img1"),
-        Historial("Historial 2", "Fecha: 01/01/2000", "img2"),
-        Historial("Historial 3", "Fecha: 01/01/2000", "img3"),
-        Historial("Historial 4", "Fecha: 01/01/2000", "img4"),
+        Historial("Cardiologia", "Fecha: 01/01/2000", "img2"),
+        Historial("Medicina general", "Fecha: 01/01/2000", "img3"),
+        Historial("Radiología", "Fecha: 01/01/2000", "img1"),
     )
     Seccion(title, items)
 }
 
 @Composable
-@Preview
+@Preview(name = "Modo Claro")
+@Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewVistaHistorial() {
-    VistaHistorial(navController = rememberNavController())
+    AppClinicaUnmsmTheme() {
+        VistaHistorial(navController = rememberNavController())
+    }
 }
