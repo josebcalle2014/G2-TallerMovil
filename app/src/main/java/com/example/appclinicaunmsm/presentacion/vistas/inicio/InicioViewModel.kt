@@ -31,28 +31,33 @@ class InicioViewModel @Inject constructor(
     fun getNoticias() {
         viewModelScope.launch {
             getNoticiasUseCase().onEach { resultado ->
-                when(resultado) {
+                when (resultado) {
                     is Resultado.Correcto -> {
                         state = state.copy(
                             noticias = resultado.data ?: emptyList(),
                             isLoading = false
                         )
                     }
+
                     is Resultado.Error -> {
                         state = state.copy(
                             isLoading = false
                         )
-                        _eventFlow.emit(UIEvent.ShowSnackBar(
-                            resultado.message ?: "Error desconocido"
-                        ))
+                        _eventFlow.emit(
+                            UIEvent.ShowSnackBar(
+                                resultado.message ?: "Error desconocido"
+                            )
+                        )
                     }
+
                     is Resultado.Cargando -> {
                         state = state.copy(
                             isLoading = true
                         )
                     }
                 }
-            }.launchIn(this)
+            }
+            //.launchIn(this)
         }
     }
 

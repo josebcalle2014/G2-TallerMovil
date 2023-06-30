@@ -24,10 +24,7 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun VistaInicio(navController: NavController) {
     EnvolvedorBarras (navController = navController) {
-        Inicio(navController = navController, InicioViewModel(
-            GetNoticiasUseCase(repositorio = NoticiaRepositorioImp())
-        )
-        )
+        Inicio(navController = navController, hiltViewModel())
     }
 }
 
@@ -49,8 +46,8 @@ fun Inicio(navController: NavController, viewModel: InicioViewModel) {
             }
         }
     }
-    Seccion(title, state.noticias)
     if (state.isLoading) FullScreenLoading()
+    Seccion(title, state.noticias)
 }
 
 @Composable
