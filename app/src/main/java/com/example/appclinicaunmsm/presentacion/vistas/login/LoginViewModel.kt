@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.dominio.viewModel
+package com.example.appclinicaunmsm.presentacion.vistas.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

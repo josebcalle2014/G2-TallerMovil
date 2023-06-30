@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.dominio.viewModel.LoginViewModel
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulario
 import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput

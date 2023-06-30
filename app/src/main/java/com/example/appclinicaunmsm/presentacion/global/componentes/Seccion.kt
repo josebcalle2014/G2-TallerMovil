@@ -29,7 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.dominio.model.ClinicServices
+import com.example.appclinicaunmsm.dominio.model.Servicio
 import com.example.appclinicaunmsm.dominio.model.Item
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
@@ -126,9 +126,9 @@ fun ComponenteItem(item: Item) {
 fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
-        ClinicServices("Servicio 1", "Descripcion 1", "img1"),
-        ClinicServices("Servicio 2", "Descripcion 2", "img2"),
-        ClinicServices("Servicio 3", "Descripcion 3", "img3"),
+        Servicio("Servicio 1", "Descripcion 1", "img1"),
+        Servicio("Servicio 2", "Descripcion 2", "img2"),
+        Servicio("Servicio 3", "Descripcion 3", "img3"),
     )
     AppClinicaUnmsmTheme {
         Seccion(title, items)

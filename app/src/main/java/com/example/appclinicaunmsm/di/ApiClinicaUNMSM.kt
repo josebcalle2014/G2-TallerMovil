@@ -15,12 +15,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiClinicaUNMSM {
-    @Provides
     @Singleton
-    fun obtenerApi(okHttpClient: OkHttpClient):ApiInterfaz{
+    @Provides
+    fun obtenerApi(): ApiInterfaz {
         return Retrofit.Builder()
             .baseUrl(Constantes.BASE_URL)
-            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterfaz::class.java)
