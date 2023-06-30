@@ -8,14 +8,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.appclinicaunmsm.R
@@ -27,13 +28,26 @@ import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoC
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
 import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
+fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hiltViewModel()) {
 
-    val username: String by viewModel.username.observeAsState(initial = "")
-    val password: String by viewModel.password.observeAsState(initial = "")
-    val loginEnabled: Boolean by viewModel.loginEnabled.observeAsState(initial = false)
+    val state = viewModel.state
+    val eventFlow = viewModel.eventFlow
+    val scaffoldState = rememberScaffoldState()
+
+    LaunchedEffect(key1 = true) {
+        eventFlow.collectLatest { event ->
+            when (event) {
+                is LoginViewModel.UIEvent.ShowSnackBar -> {
+                    scaffoldState.snackbarHostState.showSnackbar(
+                        message = event.message
+                    )
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -47,19 +61,25 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
         TituloFormulario(text = stringResource(id = R.string.login_title_form))
 
         TextoInput(
-            value = username,
-            onValueChange = { viewModel.onLoginChanged(it, password) },
+            value = state.correo,
+            onValueChange = { viewModel.onLoginChanged(it, state.contrasenia) },
             placeholder = stringResource(id = R.string.username_field_form)
         )
-        ContrasenaInput(value = password, onValueChange = { viewModel.onLoginChanged(username, it) })
+
+        ContrasenaInput(
+            value = state.contrasenia,
+            onValueChange = { viewModel.onLoginChanged(state.correo, it) }
+        )
 
         BotonFormulario(
-            buttonEnabled = loginEnabled,
+            buttonEnabled = state.botonActivo,
             onClick = {
                 viewModel.onLoginSelected()
-                navController.navigate(Vista.Inicio.route) {
-                    popUpTo(Vista.Login.route) {
-                        inclusive = true
+                if (state.login && !state.isLoading) {
+                    navController.navigate(Vista.Inicio.route) {
+                        popUpTo(Vista.Login.route) {
+                            inclusive = true
+                        }
                     }
                 }
             },
@@ -77,6 +97,6 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel) {
 @Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewVistaLogin() {
     AppClinicaUnmsmTheme {
-        VistaLogin(navController = rememberNavController(), viewModel = LoginViewModel())
+        VistaLogin(navController = rememberNavController())
     }
 }

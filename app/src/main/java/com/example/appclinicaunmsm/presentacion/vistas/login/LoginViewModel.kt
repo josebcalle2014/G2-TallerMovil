@@ -1,24 +1,33 @@
 package com.example.appclinicaunmsm.presentacion.vistas.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.appclinicaunmsm.dominio.caso_uso.LoginUsuarioUseCase
+import com.example.appclinicaunmsm.util.Resultado
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    val loginUsuarioUseCase: LoginUsuarioUseCase
+) : ViewModel() {
+    var state by mutableStateOf(LoginState(isLoading = true))
+        private set
 
-    private val _username = MutableLiveData<String>()
-    val username: LiveData<String> = _username
+    private val _eventFlow = MutableSharedFlow<UIEvent>()
+    val eventFlow = _eventFlow.asSharedFlow()
 
-    private val _password = MutableLiveData<String>()
-    val password: LiveData<String> = _password
-
-    private val _loginEnabled = MutableLiveData<Boolean>()
-    val loginEnabled: LiveData<Boolean> = _loginEnabled
-
-    fun onLoginChanged(username: String, password: String) {
-        _username.value = username
-        _password.value = password
-        _loginEnabled.value = isValidUsername(username) && isInvalidPassword(password)
+    fun onLoginChanged(correo: String, constrasenia: String) {
+        state = state.copy(
+            correo = correo,
+            contrasenia = constrasenia,
+            botonActivo = isValidUsername(correo) && isInvalidPassword(constrasenia),
+        )
     }
 
     // TODO: Agregar validaciones para usuario
@@ -28,12 +37,52 @@ class LoginViewModel : ViewModel() {
 
     // TODO: Agregar validaciones para contraseña
     private fun isInvalidPassword(password: String): Boolean {
-        return password.length > 6;
+        return password.length > 3;
     }
 
     // TODO: Agregar comunicación con api
     fun onLoginSelected() {
+        viewModelScope.launch {
+            loginUsuarioUseCase(state.correo).also { resultado ->
+                when (resultado) {
+                    is Resultado.Cargando -> {
+                        state = state.copy(
+                            isLoading = true
+                        )
+                    }
 
+                    is Resultado.Correcto -> {
+                        if (resultado.data!!.contrasenia == state.contrasenia) {
+                            state = state.copy(
+                                login = true,
+                                isLoading = false
+                            )
+                        }
+                        else {
+                            _eventFlow.emit(
+                                UIEvent.ShowSnackBar(
+                                    "Clave incorrecta para ${state.login}"
+                                )
+                            )
+                        }
+                    }
+
+                    is Resultado.Error -> {
+                        state = state.copy(
+                            isLoading = false
+                        )
+                        _eventFlow.emit(
+                            UIEvent.ShowSnackBar(
+                                resultado.message ?: "Error desconocido"
+                            )
+                        )
+                    }
+                }
+            }
+        }
     }
 
+    sealed class UIEvent {
+        data class ShowSnackBar(val message: String) : UIEvent()
+    }
 }
