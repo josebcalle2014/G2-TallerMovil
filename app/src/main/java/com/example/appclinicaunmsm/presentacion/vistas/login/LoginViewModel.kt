@@ -4,7 +4,9 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavHostController
 import com.example.appclinicaunmsm.dominio.caso_uso.LoginUsuarioUseCase
+import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 import com.example.appclinicaunmsm.util.Resultado
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -41,7 +43,7 @@ class LoginViewModel @Inject constructor(
     }
 
     // TODO: Agregar comunicación con api
-    fun onLoginSelected() {
+    fun onLoginSelected(navController: NavHostController) {
         viewModelScope.launch {
             loginUsuarioUseCase(state.correo).also { resultado ->
                 when (resultado) {
@@ -57,6 +59,11 @@ class LoginViewModel @Inject constructor(
                                 login = true,
                                 isLoading = false
                             )
+                            navController.navigate(Vista.Inicio.route) {
+                                popUpTo(Vista.Login.route) {
+                                    inclusive = true
+                                }
+                            }
                         }
                         else {
                             _eventFlow.emit(

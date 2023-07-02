@@ -74,14 +74,7 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hil
         BotonFormulario(
             buttonEnabled = state.botonActivo,
             onClick = {
-                viewModel.onLoginSelected()
-                if (state.login && !state.isLoading) {
-                    navController.navigate(Vista.Inicio.route) {
-                        popUpTo(Vista.Login.route) {
-                            inclusive = true
-                        }
-                    }
-                }
+                viewModel.onLoginSelected(navController = navController)
             },
             text = stringResource(id = R.string.login_button_form)
         )

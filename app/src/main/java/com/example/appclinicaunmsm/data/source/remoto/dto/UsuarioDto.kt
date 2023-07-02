@@ -20,7 +20,6 @@ data class UsuarioDto(
             apellidoPaterno,
             contrasenia,
             correo,
-            estado,
             fechaActualizacion,
             fechaCreacion,
             id_usuario,

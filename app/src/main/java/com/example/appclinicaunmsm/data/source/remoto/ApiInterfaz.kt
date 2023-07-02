@@ -1,6 +1,7 @@
 package com.example.appclinicaunmsm.data.source.remoto
 
 import com.example.appclinicaunmsm.data.source.remoto.dto.NoticiasDto
+import com.example.appclinicaunmsm.data.source.remoto.dto.RegistroDto
 import com.example.appclinicaunmsm.data.source.remoto.dto.UsuarioDto
 import com.example.appclinicaunmsm.util.Constantes
 import retrofit2.http.Body
@@ -15,7 +16,7 @@ interface ApiInterfaz {
     suspend fun validarDatos(@Query("correo_usuario") correo: String): UsuarioDto
 
     @POST(Constantes.API_REGISTRO)
-    suspend fun registro(@Body usuarioDto: UsuarioDto): UsuarioDto
+    suspend fun registro(@Body registroDto: RegistroDto): UsuarioDto
 
     @GET(Constantes.API_NOTICIA)
     suspend fun obtenerNoticias(): NoticiasDto

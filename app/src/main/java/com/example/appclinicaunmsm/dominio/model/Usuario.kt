@@ -5,7 +5,6 @@ class Usuario constructor(
     val apellidoPaterno: String,
     val contrasenia: String,
     val correo: String,
-    val estado: Int,
     val fechaActualizacion: String,
     val fechaCreacion: String,
     val id_usuario: Int,

@@ -9,10 +9,12 @@
     </string-array>
 
     <string name="name_field_form">Nombres</string>
-    <string name="lastname_field_form">Apellidos</string>
-    <string name="username_field_form">Nombre de usuario</string>
+    <string name="first_lastname_field_form">Apellido Paterno</string>
+    <string name="second_lastname_field_form">Apellido Materno</string>
+    <string name="dni_field_form">DNI</string>
+    <string name="username_field_form">Correo</string>
     <string name="password_field_form">Contraseña</string>
-    <string name="repeat_password_field_form">Contraseña</string>
+    <string name="repeat_password_field_form">Repita su contraseña</string>
 
     <string name="login_title_form">Iniciar sesión</string>
     <string name="login_button_form">Ingresar</string>
