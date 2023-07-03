@@ -24,28 +24,25 @@ class LoginViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<UIEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    fun onLoginChanged(correo: String, constrasenia: String) {
+    fun onLoginChanged(dni: String, contrasenia: String) {
         state = state.copy(
-            correo = correo,
-            contrasenia = constrasenia,
-            botonActivo = isValidUsername(correo) && isInvalidPassword(constrasenia),
+            dni = dni,
+            contrasenia = contrasenia,
+            botonActivo = isValidDni(dni) && isInvalidPassword(contrasenia),
         )
     }
 
-    // TODO: Agregar validaciones para usuario
-    private fun isValidUsername(username: String): Boolean {
-        return true;
+    private fun isValidDni(dni: String): Boolean {
+        return dni.length == 8;
     }
 
-    // TODO: Agregar validaciones para contraseña
     private fun isInvalidPassword(password: String): Boolean {
         return password.length > 3;
     }
 
-    // TODO: Agregar comunicación con api
     fun onLoginSelected(navController: NavHostController) {
         viewModelScope.launch {
-            loginUsuarioUseCase(state.correo).also { resultado ->
+            loginUsuarioUseCase(state.dni).also { resultado ->
                 when (resultado) {
                     is Resultado.Cargando -> {
                         state = state.copy(

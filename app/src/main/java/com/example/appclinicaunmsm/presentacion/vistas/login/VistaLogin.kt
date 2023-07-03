@@ -26,7 +26,6 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoContrasenaTexto
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
-import com.example.appclinicaunmsm.presentacion.navegacion.Vista
 import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 import kotlinx.coroutines.flow.collectLatest
 
@@ -61,21 +60,19 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hil
         TituloFormulario(text = stringResource(id = R.string.login_title_form))
 
         TextoInput(
-            value = state.correo,
+            value = state.dni,
             onValueChange = { viewModel.onLoginChanged(it, state.contrasenia) },
             placeholder = stringResource(id = R.string.username_field_form)
         )
 
         ContrasenaInput(
             value = state.contrasenia,
-            onValueChange = { viewModel.onLoginChanged(state.correo, it) }
+            onValueChange = { viewModel.onLoginChanged(state.dni, it) }
         )
 
         BotonFormulario(
             buttonEnabled = state.botonActivo,
-            onClick = {
-                viewModel.onLoginSelected(navController = navController)
-            },
+            onClick = { viewModel.onLoginSelected(navController = navController) },
             text = stringResource(id = R.string.login_button_form)
         )
 

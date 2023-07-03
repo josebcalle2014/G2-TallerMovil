@@ -12,7 +12,7 @@
     <string name="first_lastname_field_form">Apellido Paterno</string>
     <string name="second_lastname_field_form">Apellido Materno</string>
     <string name="dni_field_form">DNI</string>
-    <string name="username_field_form">Correo</string>
+    <string name="username_field_form">DNI</string>
     <string name="password_field_form">Contraseña</string>
     <string name="repeat_password_field_form">Repita su contraseña</string>
 
