@@ -29,7 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.appclinicaunmsm.R
-import com.example.appclinicaunmsm.dominio.model.Servicio
+import com.example.appclinicaunmsm.dominio.model.Especialidad
 import com.example.appclinicaunmsm.dominio.model.Item
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonPrimario
 import com.example.appclinicaunmsm.presentacion.global.formulario.BotonSecundario
@@ -66,7 +66,7 @@ fun ComponenteItem(item: Item) {
         AlertDialog(
             onDismissRequest = { showDialog.value = false },
             title = { Text(text = "Titulo: ${item.title}") },
-            text = { Text(text = "Descripcion: ${item.description}") },
+            text = { Text(text = "Descripcion: ${item.descripcion}") },
             confirmButton = {
                 BotonPrimario(
                     onClick = {
@@ -114,7 +114,7 @@ fun ComponenteItem(item: Item) {
                     contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(16.dp))
-                Text(text = item.description, style = MaterialTheme.typography.body1)
+                Text(text = item.descripcion, style = MaterialTheme.typography.body1)
             }
         }
     }
@@ -126,9 +126,9 @@ fun ComponenteItem(item: Item) {
 fun PreviewSeccion() {
     val title = "Servicios"
     val items = listOf(
-        Servicio("Servicio 1", "Descripcion 1", "img1"),
-        Servicio("Servicio 2", "Descripcion 2", "img2"),
-        Servicio("Servicio 3", "Descripcion 3", "img3"),
+        Especialidad("Servicio 1", "Descripcion 1", "img1"),
+        Especialidad("Servicio 2", "Descripcion 2", "img2"),
+        Especialidad("Servicio 3", "Descripcion 3", "img3"),
     )
     AppClinicaUnmsmTheme {
         Seccion(title, items)

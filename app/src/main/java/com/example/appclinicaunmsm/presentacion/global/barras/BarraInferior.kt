@@ -30,15 +30,15 @@ fun BarraInferior(
                 label = { Text(text = Vista.Inicio.route) }
             )
             BottomNavigationItem(
-                selected = vistaActual == Vista.Citas,
-                onClick = { onScreenSelected(Vista.Citas) },
+                selected = vistaActual == Vista.Especialidades,
+                onClick = { onScreenSelected(Vista.Especialidades) },
                 icon = {
                     Icon(
-                        imageVector = Vista.Citas.icon,
-                        contentDescription = Vista.Citas.route
+                        imageVector = Vista.Especialidades.icon,
+                        contentDescription = Vista.Especialidades.route
                     )
                 },
-                label = { Text(text = Vista.Citas.route) }
+                label = { Text(text = Vista.Especialidades.route) }
             )
             BottomNavigationItem(
                 selected = vistaActual == Vista.Historial,

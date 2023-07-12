@@ -6,4 +6,5 @@ object Constantes {
     const val API_VALIDAR="Autenticacion/ValidarCorreo"
     const val API_REGISTRO="Autenticacion/CrearUsuario"
     const val API_NOTICIA="Inicio/ListaNoticias"
+    const val API_ESPECIALIDAD="Gestion/ListaEspecialidades"
 }

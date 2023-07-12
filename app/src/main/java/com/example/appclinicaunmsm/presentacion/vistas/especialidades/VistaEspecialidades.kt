@@ -1,4 +1,4 @@
-package com.example.appclinicaunmsm.presentacion.vistas.inicio
+package com.example.appclinicaunmsm.presentacion.vistas.especialidades
 
 import android.content.res.Configuration
 import androidx.compose.material.rememberScaffoldState
@@ -15,15 +15,15 @@ import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun VistaInicio(navController: NavController) {
-    EnvolvedorBarras (navController = navController) {
-        Inicio(navController = navController, hiltViewModel())
+fun VistaEspecialidades(navController: NavController) {
+    EnvolvedorBarras(navController = navController) {
+        Especialidades(navController = navController)
     }
 }
 
 @Composable
-fun Inicio(navController: NavController, viewModel: InicioViewModel) {
-    val title  = "Noticias"
+fun Especialidades(navController: NavController, viewModel: EspecialidadesViewModel = hiltViewModel()) {
+    val title = "Especialidades"
     val state = viewModel.state
     val eventFlow = viewModel.eventFlow
     val scaffoldState = rememberScaffoldState()
@@ -31,7 +31,7 @@ fun Inicio(navController: NavController, viewModel: InicioViewModel) {
     LaunchedEffect(key1 = true) {
         eventFlow.collectLatest { event ->
             when(event) {
-                is InicioViewModel.UIEvent.ShowSnackBar -> {
+                is EspecialidadesViewModel.UIEvent.ShowSnackBar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message
                     )
@@ -39,15 +39,16 @@ fun Inicio(navController: NavController, viewModel: InicioViewModel) {
             }
         }
     }
+
     if (state.isLoading) IndicadorDeCarga()
-    Seccion(title, state.noticias)
+    Seccion(title, state.especialidades)
 }
 
 @Composable
 @Preview(name = "Modo Claro")
 @Preview(name = "Modo Oscuro", uiMode = Configuration.UI_MODE_NIGHT_YES)
-fun PreviewVistaInicio() {
+fun PreviewVistaCitas() {
     AppClinicaUnmsmTheme {
-        VistaInicio(navController = rememberNavController())
+        VistaEspecialidades(navController = rememberNavController())
     }
 }

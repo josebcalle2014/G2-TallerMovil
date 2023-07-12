@@ -1,5 +1,6 @@
 package com.example.appclinicaunmsm.data.source.remoto
 
+import com.example.appclinicaunmsm.data.source.remoto.dto.EspecialidadesDto
 import com.example.appclinicaunmsm.data.source.remoto.dto.NoticiasDto
 import com.example.appclinicaunmsm.data.source.remoto.dto.RegistroDto
 import com.example.appclinicaunmsm.data.source.remoto.dto.UsuarioDto
@@ -24,4 +25,7 @@ interface ApiInterfaz {
 
     @GET(Constantes.API_NOTICIA)
     suspend fun obtenerNoticias(): NoticiasDto
+
+    @GET(Constantes.API_ESPECIALIDAD)
+    suspend fun obtenerEspecialidades(): EspecialidadesDto
 }
