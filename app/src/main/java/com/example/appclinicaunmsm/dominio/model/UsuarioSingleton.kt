@@ -7,6 +7,10 @@ object UsuarioSingleton {
         this.usuario = usuario
     }
 
+    fun cerrarSesion() {
+        this.usuario = null
+    }
+
     fun getUsuario(): Usuario? {
         return usuario
     }
