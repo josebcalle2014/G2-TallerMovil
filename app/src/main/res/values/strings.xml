@@ -12,7 +12,7 @@
     <string name="first_lastname_field_form">Apellido Paterno</string>
     <string name="second_lastname_field_form">Apellido Materno</string>
     <string name="dni_field_form">DNI</string>
-    <string name="username_field_form">DNI</string>
+    <string name="username_field_form">Correo</string>
     <string name="password_field_form">Contraseña</string>
     <string name="repeat_password_field_form">Repita su contraseña</string>
 
@@ -21,6 +21,9 @@
 
     <string name="register_title_form">Registrarse</string>
     <string name="register_button_form">Registrarse</string>
+    <string name="direction_field_form">Direccion</string>
+    <string name="genre_field_form">Genero</string>
+    <string name="blood_type_field_form">Tipo de sangre</string>
 
     <string-array name="features">
         <item>Agenda tus citas</item>

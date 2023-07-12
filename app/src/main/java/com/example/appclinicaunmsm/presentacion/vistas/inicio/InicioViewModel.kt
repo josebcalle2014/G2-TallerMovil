@@ -1,15 +1,14 @@
 package com.example.appclinicaunmsm.presentacion.vistas.inicio
 
-import android.util.Log
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.appclinicaunmsm.dominio.caso_uso.GetNoticiasUseCase
+import com.example.appclinicaunmsm.dominio.model.UsuarioSingleton
 import com.example.appclinicaunmsm.util.Resultado
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -28,6 +27,8 @@ class InicioViewModel @Inject constructor(
 
     init {
         getNoticias()
+        val usuario = UsuarioSingleton.getUsuario()
+        println(usuario.toString())
     }
 
     fun getNoticias() {

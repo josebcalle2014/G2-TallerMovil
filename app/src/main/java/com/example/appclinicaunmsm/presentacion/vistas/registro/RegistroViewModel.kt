@@ -18,22 +18,21 @@ import javax.inject.Inject
 class RegistroViewModel @Inject constructor(
     val registroUsuarioUseCase: RegistroUsuarioUseCase
 ) : ViewModel() {
-    var state by mutableStateOf(RegistroState(isLoading = true))
+    var state by mutableStateOf(RegistroState())
         private set
 
     private val _eventFlow = MutableSharedFlow<UIEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
     fun onValueChange(registroDto: RegistroDto) {
-        val botonActivo = isValid()
         state = state.copy(
             registroDto = registroDto,
-            botonActivo = botonActivo
+            botonActivo = isValid(registroDto)
         )
     }
 
-    fun isValid(): Boolean {
-        return state.registroDto.isValido()
+    fun isValid(registroDto: RegistroDto): Boolean {
+        return registroDto.isValido()
     }
 
     fun onRegistroSelected(navController: NavHostController) {
@@ -51,11 +50,16 @@ class RegistroViewModel @Inject constructor(
                             isRegister = true,
                             isLoading = false
                         )
-                        navController.navigate(Vista.Inicio.route) {
+                        navController.navigate(Vista.Login.route) {
                             popUpTo(Vista.Login.route) {
                                 inclusive = true
                             }
                         }
+                        _eventFlow.emit(
+                            UIEvent.ShowSnackBar(
+                                "Registro exitoso"
+                            )
+                        )
                     }
 
                     is Resultado.Error -> {

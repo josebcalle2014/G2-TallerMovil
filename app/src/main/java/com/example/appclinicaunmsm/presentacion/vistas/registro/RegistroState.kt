@@ -6,5 +6,5 @@ data class RegistroState(
     val registroDto: RegistroDto = RegistroDto(),
     val botonActivo: Boolean = false,
     val isLoading: Boolean = false,
-    var isRegister: Boolean = false
+    val isRegister: Boolean = false,
 )

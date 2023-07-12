@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,9 +25,9 @@ import com.example.appclinicaunmsm.presentacion.global.formulario.BotonFormulari
 import com.example.appclinicaunmsm.presentacion.global.formulario.ContrasenaInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TextoInput
 import com.example.appclinicaunmsm.presentacion.global.formulario.TituloFormulario
+import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.OlvidoContrasenaTexto
 import com.example.appclinicaunmsm.presentacion.vistas.login.componentes.RegistrarTexto
-import com.example.appclinicaunmsm.presentacion.tema.AppClinicaUnmsmTheme
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -35,6 +36,45 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hil
     val state = viewModel.state
     val eventFlow = viewModel.eventFlow
     val scaffoldState = rememberScaffoldState()
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        content = { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colors.background)
+                    .padding(innerPadding)
+                    .padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
+            ) {
+
+                TituloFormulario(text = stringResource(id = R.string.login_title_form))
+
+                TextoInput(
+                    value = state.dni,
+                    onValueChange = { viewModel.onLoginChanged(it, state.contrasenia) },
+                    placeholder = stringResource(id = R.string.dni_field_form)
+                )
+
+                ContrasenaInput(
+                    value = state.contrasenia,
+                    onValueChange = { viewModel.onLoginChanged(state.dni, it) }
+                )
+
+                BotonFormulario(
+                    buttonEnabled = state.botonActivo,
+                    onClick = { viewModel.onLoginSelected(navController = navController) },
+                    text = stringResource(id = R.string.login_button_form)
+                )
+
+                OlvidoContrasenaTexto(navController = navController)
+                Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
+                RegistrarTexto(navController = navController)
+            }
+        }
+    )
 
     LaunchedEffect(key1 = true) {
         eventFlow.collectLatest { event ->
@@ -48,38 +88,6 @@ fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hil
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colors.background)
-            .padding(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
-    ) {
-
-        TituloFormulario(text = stringResource(id = R.string.login_title_form))
-
-        TextoInput(
-            value = state.dni,
-            onValueChange = { viewModel.onLoginChanged(it, state.contrasenia) },
-            placeholder = stringResource(id = R.string.username_field_form)
-        )
-
-        ContrasenaInput(
-            value = state.contrasenia,
-            onValueChange = { viewModel.onLoginChanged(state.dni, it) }
-        )
-
-        BotonFormulario(
-            buttonEnabled = state.botonActivo,
-            onClick = { viewModel.onLoginSelected(navController = navController) },
-            text = stringResource(id = R.string.login_button_form)
-        )
-
-        OlvidoContrasenaTexto(navController = navController)
-        Divider(color = MaterialTheme.colors.onSecondary, thickness = 1.dp)
-        RegistrarTexto(navController = navController)
-    }
 }
 
 @Composable

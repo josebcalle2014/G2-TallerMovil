@@ -3,28 +3,31 @@ package com.example.appclinicaunmsm.data.source.remoto.dto
 import com.example.appclinicaunmsm.dominio.model.Usuario
 
 data class UsuarioDto(
-    val apellidoMaterno: String,
-    val apellidoPaterno: String,
-    val contrasenia: String,
-    val correo: String,
-    val estado: Int,
-    val fechaActualizacion: String,
-    val fechaCreacion: String,
     val id_usuario: Int,
+    val nombre: String,
+    val apellidoPaterno: String,
+    val apellidoMaterno: String,
+    val correo: String,
     val imagen: String,
-    val nombre: String
+    val telefono: String,
+    val tipo_usuario: Int,
+    val direccion: String,
+    val fecha_nacimiento: String,
+    val genero: String,
+    val tipo_sangre: String,
 ) {
     fun toUsuario(): Usuario {
         return Usuario(
             apellidoMaterno,
             apellidoPaterno,
-            contrasenia,
             correo,
-            fechaActualizacion,
-            fechaCreacion,
             id_usuario,
             imagen,
-            nombre
+            nombre,
+            telefono,
+            direccion,
+            genero,
+            tipo_sangre
         )
     }
 }

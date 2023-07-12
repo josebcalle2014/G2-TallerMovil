@@ -8,7 +8,7 @@ import javax.inject.Inject
 class LoginUsuarioUseCase @Inject constructor(
     val repositorio: UsuarioRepositorioImp
 ) {
-    suspend operator fun invoke(correo: String): Resultado<Usuario> {
-        return repositorio.getUsuario(correo)
+    suspend operator fun invoke(dni: String, contrasenia: String): Resultado<Usuario> {
+        return repositorio.loginUsuario(dni, contrasenia)
     }
 }

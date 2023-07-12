@@ -6,5 +6,6 @@ import com.example.appclinicaunmsm.util.Resultado
 
 interface UsuarioRepositorio {
     suspend fun getUsuario(correo: String): Resultado<Usuario>
-    suspend fun crearUsuario(registroDto: RegistroDto): Resultado<Usuario>
+    suspend fun crearUsuario(registroDto: RegistroDto): Resultado<Void>
+    suspend fun loginUsuario(dni: String, contrasenia: String): Resultado<Usuario>
 }

@@ -1,14 +1,14 @@
 package com.example.appclinicaunmsm.dominio.model
 
-class Usuario constructor(
+data class Usuario (
     val apellidoMaterno: String,
     val apellidoPaterno: String,
-    val contrasenia: String,
     val correo: String,
-    val fechaActualizacion: String,
-    val fechaCreacion: String,
-    val id_usuario: Int,
+    val idUsuario: Int,
     val imagen: String,
-    val nombre: String
-) {
-}
+    val nombre: String,
+    val telefono: String,
+    val direccion: String,
+    val genero: String,
+    val tipoSangre: String
+)
