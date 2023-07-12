@@ -65,7 +65,7 @@ class LoginViewModel @Inject constructor(
                                 "Sesión iniciada correctamente"
                             )
                         )
-                        resultado.data?.let { UsuarioSingleton.setUsuario(it) }
+                        resultado.data?.let { UsuarioSingleton.guardarSesion(it) }
                         navController.navigate(Vista.Inicio.route) {
                             popUpTo(Vista.Login.route) {
                                 inclusive = true

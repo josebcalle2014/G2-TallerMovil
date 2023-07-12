@@ -33,6 +33,14 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun VistaLogin(navController: NavHostController, viewModel: LoginViewModel = hiltViewModel()) {
 
+    //if (UsuarioSingleton.isSesionActiva()) {
+    //    navController.navigate(Vista.Inicio.route) {
+    //        popUpTo(Vista.Login.route) {
+    //            inclusive = true
+    //        }
+    //    }
+    //}
+
     val state = viewModel.state
     val eventFlow = viewModel.eventFlow
     val scaffoldState = rememberScaffoldState()
